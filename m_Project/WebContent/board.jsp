@@ -8,6 +8,7 @@
 </head>
 <body>
 <%@include file="main.jsp" %>
+<%@include file="pj/pj_list.jsp" %>
 <%@include file="include/bottom.jsp" %>
 </body>
 </html>
