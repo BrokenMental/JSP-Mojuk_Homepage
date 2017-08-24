@@ -19,19 +19,6 @@
 			window.location.reload();
 		}
 	}
-
-	function showtab(a) {
-		for (i = 0; i <= 5; i++) {
-
-			var target = document.getElementById('tab' + i)
-
-			if (i == a) {
-				target.style.display = 'block';
-			} else {
-				target.style.display = 'none';
-			}
-		}
-	}
 </script>
 <link rel="stylesheet" type="text/css" href="css/main.css" />
 </head>
@@ -95,106 +82,6 @@
 			<div id="main_ground">
 				<div id="main"></div>
 			</div>
-			<%-- <div id="main_ground">
-				<div id="main">
-					<!-- 메뉴 -->
-					<ul>
-						<li class="main_menu"><a href="javascript:;"
-							onclick="javascript:showtab(0);"><h4>
-									<span style="color: #008000">동아리</span>소개
-								</h4></a></li>
-						<li class="main_menu"><a href="javascript:;"
-							onclick="javascript:showtab(1);"><h4>
-									<span style="color: #008000">동아리</span>명부
-								</h4></a></li>
-						<li class="main_menu"><a href="javascript:;"
-							onclick="javascript:showtab(2);"><h4>
-									<span style="color: #008000">공지</span>사항
-								</h4></a></li>
-						<li class="main_menu"><a href="javascript:;"
-							onclick="javascript:showtab(3);"><h4>
-									<span style="color: #008000">자유</span>게시판
-								</h4></a></li>
-						<li class="main_menu"><a href="javascript:;"
-							onclick="javascript:showtab(4);"><h4>
-									<span style="color: #008000">프로</span>젝트
-								</h4></a></li>
-						<li class="main_menu"><a href="javascript:;"
-							onclick="javascript:showtab(5);"><h4>
-									<span style="color: #008000">갤러리</span>
-								</h4></a></li>
-					</ul>
-
-					<div id="tab0" class="tab">
-						<div class="bar" style="float: left; height: 3px;"></div>
-						<div style="float: right;">◈ 홈 > 동아리소개</div>
-						<br>
-						<span style="color: #008000;"><h2>동아리소개</h2></span>
-						<hr>
-						<hr>
-					</div>
-
-					<div id="tab1" class="tab">
-						<div class="bar" style="float: left; height: 3px;"></div>
-						<div style="float: right;">◈ 홈 > 프로필 > 2017</div>
-						<br>
-						<span style="color: #008000;"><h2>2017</h2></span>
-						<hr>
-						<hr>
-					</div>
-
-					<div id="tab2" class="tab">
-						<div class="bar" style="float: left; height: 3px;"></div>
-						<div style="float: right;">◈ 홈 > 공지사항</div>
-						<br>
-						<span style="color: #008000;"><h2>공지사항</h2></span>
-						<hr>
-						<hr>
-					</div>
-
-					<div id="tab3" class="tab">
-						<div class="bar" style="float: left; height: 3px;"></div>
-						<div style="float: right;">◈ 홈 > 자유게시판</div>
-						<br>
-						<span style="color: #008000;"><h2>자유게시판</h2></span>
-						<hr>
-						<hr>
-					</div>
-
-					<div id="tab4" class="tab">
-						<div class="bar" style="float: left; height: 3px;"></div>
-						<div style="float: right;">◈ 홈 > 프로젝트</div>
-						<br>
-						<span style="color: #008000;"><h2>프로젝트</h2></span>
-						<hr>
-						<%@include file="/pj_list.jsp"%>
-						<hr>
-					</div>
-					
-					<div id="tab5" class="tab">
-						<div class="bar" style="float: left; height: 3px;"></div>
-						<div id="gallery">
-							<div style="float: right;">◈ 홈 > 갤러리</div>
-							<br> <span style="color: #008000;"><h2>모죽 사진관</h2></span>
-							<hr>
-							<hr>
-							<div class="pagination">
-								<div class="move">
-									<img src="image/move2.png" style="width: 100%;">
-								</div>
-								<div class="move">1</div>
-								<div class="move">2</div>
-								<div class="move">
-									<img src="image/move1.png" style="width: 100%;">
-								</div>
-							</div>
-							<!-- pagination_end -->
-						</div>
-						<!-- gallery_end -->
-					</div>
-				</div>
-				<!-- main_end -->
-			</div> --%>
 			<!-- main ground_end -->
 			<div id="footer">
 				<img src="image/bottom.png">
