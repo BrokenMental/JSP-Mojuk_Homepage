@@ -84,7 +84,7 @@
 			</div>
 			<!-- main ground_end -->
 			<div id="footer">
-				<img src="image/bottom.png">
+				<img src="img/bottom.png">
 			</div>
 		</div>
 		<!-- container_end -->
