@@ -58,7 +58,9 @@
 			<div id="main_ground">
 				<div id="main">
 					<center>
-						<h3>== 모죽 홈페이지 공사중 ==</h3>
+						<h3>== 공사중 ==</h3>
+						<img src="img/logo.png" width="160" height="60">
+						<h3>== 공사중 ==</h3>
 					</center>
 				</div>
 			</div>
