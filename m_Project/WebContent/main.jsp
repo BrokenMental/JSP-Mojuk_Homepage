@@ -63,27 +63,27 @@
 				</div>
 				<div class="menu" style="margin-left: 345px;">
 					<h3>
-						<a href="mojuk" style="text-decoration: none !important;">모죽</a>
+						<a href="mojuk" style="text-decoration: none !important; color: black;">모죽</a>
 					</h3>
 				</div>
 				<div class="menu">
 					<h3>
-						<a href="notice.jsp" style="text-decoration: none !important;">공지사항</a>
+						<a href="notice.jsp" style="text-decoration: none !important; color: black;">공지사항</a>
 					</h3>
 				</div>
 				<div class="menu">
 					<h3>
-						<a href="project.jsp" style="text-decoration: none !important;">프로젝트</a>
+						<a href="project.jsp" style="text-decoration: none !important; color: black;">프로젝트</a>
 					</h3>
 				</div>
 				<div class="menu">
 					<h3>
-						<a href="board.jsp" style="text-decoration: none !important;">자유게시판</a>
+						<a href="board.jsp" style="text-decoration: none !important; color: black;">자유게시판</a>
 					</h3>
 				</div>
 				<div class="menu">
 					<h3>
-						<a href="gall.jsp" style="text-decoration: none !important;">갤러리</a>
+						<a href="gall.jsp" style="text-decoration: none !important; color: black;">갤러리</a>
 					</h3>
 				</div>
 			</div>
