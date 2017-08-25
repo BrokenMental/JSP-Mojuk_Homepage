@@ -4,7 +4,7 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	Class.forName("com.mysql.jdbc.Driver");
-	String url = "jdbc:mysql://localhost:3306/mojuk_db";
+	String url = "jdbc:mysql://localhost:3307/mojuk?useUnicode=true&characterEncoding=UTF-8";
 	String id = "root";
 	String pass = "1234";
 
@@ -19,7 +19,7 @@
 		Connection conn = DriverManager.getConnection(url, id, pass);
 		Statement stmt = conn.createStatement();
 
-		String sql = "SELECT USERNAME, PASSWORD, TITLE, MEMO FROM project_tb WHERE ID=" + idx;
+		String sql = "SELECT USERNAME, PASSWORD, TITLE, MEMO FROM project WHERE ID=" + idx;
 		ResultSet rs = stmt.executeQuery(sql);
 
 		if (rs.next()) {
@@ -43,6 +43,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>게시물 수정</title>
+<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
 </head>
 <body>
 	<table>

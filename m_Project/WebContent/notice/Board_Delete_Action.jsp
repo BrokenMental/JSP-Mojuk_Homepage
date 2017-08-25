@@ -1,12 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ page import="java.sql.*"%>
+
 <%
-	request.setCharacterEncoding("UTF-8");
-	Class.forName("com.mysql.jdbc.Driver");
+	request.setCharacterEncoding("utf-8");
 	String url = "jdbc:mysql://localhost:3307/mojuk?useUnicode=true&characterEncoding=UTF-8";
 	String id = "root";
 	String pass = "1234";
+	Class.forName("com.mysql.jdbc.Driver");
+
 	String password = null;
 	int idx = Integer.parseInt(request.getParameter("idx"));
 	String passw = request.getParameter("password");
@@ -16,7 +18,7 @@
 		Connection conn = DriverManager.getConnection(url, id, pass);
 		Statement stmt = conn.createStatement();
 
-		String sql = "SELECT password FROM project WHERE id=" + idx;
+		String sql = "SELECT PASSWORD FROM notice WHERE ID=" + idx;
 		ResultSet rs = stmt.executeQuery(sql);
 
 		if (rs.next()) {
@@ -25,12 +27,12 @@
 
 		if (password.equals(passw)) {
 
-			sql = "DELETE FROM project WHERE id=" + idx;
+			sql = "DELETE FROM notice WHERE ID=" + idx;
 			stmt.executeUpdate(sql);
 %>
 <script language=javascript>
 	self.window.alert("해당 글을 삭제하였습니다.");
-	location.href = "main.jsp";
+	location.href = "Board_List.jsp";
 </script>
 
 <%

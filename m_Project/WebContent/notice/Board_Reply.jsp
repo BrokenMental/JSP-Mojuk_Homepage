@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ page import="java.sql.*"%>
 <script language="javascript">
 	// 자바 스크립트 시작
@@ -38,10 +38,10 @@
 
 <%
 	int idx = Integer.parseInt(request.getParameter("idx"));
-	Class.forName("com.mysql.jdbc.Driver");
 	String url = "jdbc:mysql://localhost:3307/mojuk?useUnicode=true&characterEncoding=UTF-8";
 	String id = "root";
 	String pass = "1234";
+	Class.forName("com.mysql.jdbc.Driver");
 	String title = "";
 
 	try {
@@ -49,7 +49,7 @@
 		Connection conn = DriverManager.getConnection(url, id, pass);
 		Statement stmt = conn.createStatement();
 
-		String sql = "SELECT TITLE FROM project WHERE ID=" + idx;
+		String sql = "SELECT TITLE FROM notice WHERE ID=" + idx;
 		ResultSet rs = stmt.executeQuery(sql);
 
 		if (rs.next()) {
@@ -67,23 +67,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>게시물 답글</title>
+<title>게시판</title>
 <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
 </head>
 <body>
 	<table>
-		<form name=replyform method=post action="pj_reply_ok.jsp?idx=<%=idx%>">
+		<form name=replyform method=post
+			action="Board_Reply_Action.jsp?idx=<%=idx%>">
 			<tr>
 				<td>
 					<table width="100%" cellpadding="0" cellspacing="0" border="0">
 						<tr
-							style="background: url('image/table_mid.gif') repeat-x; text-align: center;">
-							<td width="5"><img src="image/table_left.gif" width="5"
-											   height="30" /></td>
+							style="background: url('img/table_mid.gif') repeat-x; text-align: center;">
+							<td width="5"><img src="img/table_left.gif" width="5"
+								height="30" /></td>
 							<td>답글</td>
-							<td width="5"><img src="image/table_right.gif" width="5"
-											   height="30" /></td>
+							<td width="5"><img src="img/table_right.gif" width="5"
+								height="30" /></td>
 						</tr>
 					</table>
 					<table>
@@ -139,4 +139,5 @@
 			</tr>
 	</table>
 </body>
+
 </html>

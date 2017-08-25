@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>모죽 소개</title>
+<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
 </head>
 <body>
 	<%@include file="main.jsp" %>
@@ -35,7 +36,7 @@
 			<div id="tab1" class="tab"> 
 				<div class="bar" style="float: left; height: 3px;"></div>
 				<div style="float: right;">◈ 모죽 2017</div>
-				<br> <span style="color: #008000;"><h2>모죽 명부</h2></span>
+				<br> <span style="color: #008000;"><h2>모죽 친구들</h2></span>
 				<hr>
 				<hr>
 			</div>

@@ -22,7 +22,7 @@ com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
 
 	Class.forName("com.mysql.jdbc.Driver");
 
-	String url = "jdbc:mysql://localhost:3306/mojuk_db?useUnicode=true&characterEncoding=UTF-8";
+	String url = "jdbc:mysql://localhost:3307/mojuk?useUnicode=true&characterEncoding=UTF-8";
 	String id = "root";
 	String pass = "1234";
 	String name = multi.getParameter("name");
@@ -37,14 +37,14 @@ com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
 		Connection conn = DriverManager.getConnection(url, id, pass);
 		Statement stmt = conn.createStatement();
 
-		String sql = "SELECT MAX(ID) FROM project_tb"; 
+		String sql = "SELECT MAX(ID) FROM project"; 
 		ResultSet rs = stmt.executeQuery(sql);
 
 		if(rs.next()){
 				max=rs.getInt(1);
 		}
 
-		sql = "INSERT INTO project_tb(USERNAME,PASSWORD,TITLE,MEMO,REF) VALUES(?,?,?,?,?)";
+		sql = "INSERT INTO project(USERNAME,PASSWORD,TITLE,MEMO,REF) VALUES(?,?,?,?,?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		
 		pstmt.setString(1, name);
