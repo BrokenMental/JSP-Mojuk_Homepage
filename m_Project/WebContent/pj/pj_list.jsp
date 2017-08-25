@@ -178,7 +178,7 @@
 		</tr>
 		<tr align="center">
 			<td><input type=button value="글쓰기"
-				OnClick="window.location='pj_write.jsp'"></td>
+				OnClick="window.location='pj/pj_write.jsp'"></td>
 		</tr>
 	</table>
 </body>

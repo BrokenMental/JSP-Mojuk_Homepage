@@ -11,7 +11,7 @@
 	<div style="width: 0px; margin: auto;">
 		<div id="container">
 			<!-- 상단 -->
-			<%@include file="include/top.jsp"%>
+			<%@include file="../../include/top.jsp"%>
 			<div class="bar"></div>
 			<!-- 상단 메뉴 -->
 			<div id="menu">

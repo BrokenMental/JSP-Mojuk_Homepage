@@ -4,23 +4,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>모죽 소개</title>
 </head>
 <body>
-	<%@include file="main.jsp"%>
+	<%@include file="main.jsp" %>
 	<div id="main_ground">
 		<div id="main">
 			<!-- 메뉴 -->
 			<ul style="text-align: center;">
 				<li class="main_menu"><a href="javascript:;"
-					style="text-decoration: none !important;"
+					style="text-decoration: none !important; color: #008000;"
 					onclick="javascript:showtab(0);"><h4>
-							<span style="color: #008000">모죽 소개</span>
+							<span style="color: #008000;">모죽 소개</span>
 						</h4></a></li>
 				<li class="main_menu"><a href="javascript:;"
-					style="text-decoration: none !important;"
+					style="text-decoration: none !important; color: #008000;"
 					onclick="javascript:showtab(1);"><h4>
-							<span style="color: #008000">모죽 명부</span>
+							<span style="color: #008000;">모죽 명부</span>
 						</h4></a></li>
 			</ul>
 
@@ -42,7 +42,7 @@
 		</div>
 		<!-- main_end -->
 	</div>
-	<%@include file="include/bottom.jsp"%>
+	<%@include file="../include/bottom.jsp"%>
 	<script>
 		function showtab(a) {
 			for (i = 0; i <= 1; i++) {
