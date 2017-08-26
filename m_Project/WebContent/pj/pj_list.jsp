@@ -28,7 +28,7 @@
 </head>
 <body>
 	<%
-		String url = "jdbc:mysql://localhost:3307/mojuk?useUnicode=true&characterEncoding=UTF-8";
+		String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
 		String id = "root";
 		String pass = "1234";
 		Class.forName("com.mysql.jdbc.Driver");
@@ -78,14 +78,14 @@
 		<tr
 			style="background: url('image/table_mid.gif') repeat-x; text-align: center;">
 			<td width="5"><img src="image/table_left.gif" width="5"
-							   height="30" /></td>
+				height="30" /></td>
 			<td width="70">번호</td>
 			<td width="380">제목</td>
 			<td width="70">작성자</td>
 			<td width="160">작성일</td>
 			<td width="60">조회수</td>
 			<td width="10"><img src="image/table_right.gif" width="5"
-								height="30" /></td>
+				height="30" /></td>
 		</tr>
 
 		<%

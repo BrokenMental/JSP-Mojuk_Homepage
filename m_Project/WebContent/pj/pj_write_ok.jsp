@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
-<%@ page import="java.util.*" %>
-<%@ page import="java.io.File, java.io.IOException,
+<%@ page import="java.util.*"%>
+<%@ page
+	import="java.io.File, java.io.IOException,
 com.oreilly.servlet.MultipartRequest,
-com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
+com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
 	request.setCharacterEncoding("UTF-8");
@@ -14,7 +15,7 @@ com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
 	String savePath = request.getRealPath("/pj_upload"); //파일이 업로드 될 실제 tomcat 폴더의 Webcontent 기준
 	try {
 		multi = new MultipartRequest(request, savePath, sizeLimit, "UTF-8", new DefaultFileRenamePolicy());
-	}catch (Exception e) {
+	} catch (Exception e) {
 		e.printStackTrace();
 	}
 
@@ -22,37 +23,36 @@ com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
 
 	Class.forName("com.mysql.jdbc.Driver");
 
-	String url = "jdbc:mysql://localhost:3307/mojuk?useUnicode=true&characterEncoding=UTF-8";
+	String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
 	String id = "root";
 	String pass = "1234";
 	String name = multi.getParameter("name");
 	String password = multi.getParameter("password");
 	String title = multi.getParameter("title");
 	String memo = multi.getParameter("memo");
-	
 
 	int max = 0;
-	
+
 	try {
 		Connection conn = DriverManager.getConnection(url, id, pass);
 		Statement stmt = conn.createStatement();
 
-		String sql = "SELECT MAX(ID) FROM project"; 
+		String sql = "SELECT MAX(ID) FROM project";
 		ResultSet rs = stmt.executeQuery(sql);
 
-		if(rs.next()){
-				max=rs.getInt(1);
+		if (rs.next()) {
+			max = rs.getInt(1);
 		}
 
 		sql = "INSERT INTO project(USERNAME,PASSWORD,TITLE,MEMO,REF) VALUES(?,?,?,?,?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		
+
 		pstmt.setString(1, name);
 		pstmt.setString(2, password);
 		pstmt.setString(3, title);
 		pstmt.setString(4, memo);
-		pstmt.setInt(5, max+1);
-		
+		pstmt.setInt(5, max + 1);
+
 		pstmt.execute();
 		pstmt.close();
 		stmt.close();

@@ -4,7 +4,7 @@
 
 <%
 	Class.forName("com.mysql.jdbc.Driver");
-	String url = "jdbc:mysql://localhost:3307/mojuk?useUnicode=true&characterEncoding=UTF-8";
+	String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
 	String id = "root";
 	String pass = "1234";
 	int idx = Integer.parseInt(request.getParameter("idx"));
@@ -39,10 +39,10 @@
 					<tr
 						style="background: url('image/table_mid.gif') repeat-x; text-align: center;">
 						<td width="5"><img src="image/table_left.gif" width="5"
-										   height="30" /></td>
+							height="30" /></td>
 						<td>내 용</td>
 						<td width="5"><img src="image/table_right.gif" width="5"
-										   height="30" /></td>
+							height="30" /></td>
 					</tr>
 				</table>
 				<table width="413">
@@ -122,13 +122,12 @@
 					<tr align="center">
 						<td width="0">&nbsp;</td>
 						<td colspan="2" width="399"><input type=button value="글쓰기"
-							OnClick="window.location='pj_write.jsp'"> <input type=button
-																			 value="답글" OnClick="window.location='pj_reply.jsp'">
+							OnClick="window.location='pj_write.jsp'"> <input
+							type=button value="답글" OnClick="window.location='pj_reply.jsp'">
 							<input type=button value="목록"
 							OnClick="window.location='main.jsp'"> <input type=button
-																		 value="수정" OnClick="window.location='pj_modify.jsp'">
-							<input type=button value="삭제"
-							OnClick="window.location='pj_delete.jsp'">
+							value="수정" OnClick="window.location='pj_modify.jsp'"> <input
+							type=button value="삭제" OnClick="window.location='pj_delete.jsp'">
 						<td width="0">&nbsp;</td>
 					</tr>
 				</table>
