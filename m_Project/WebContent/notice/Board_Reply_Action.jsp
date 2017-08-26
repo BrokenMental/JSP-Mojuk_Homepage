@@ -4,10 +4,11 @@
 <%
 	request.setCharacterEncoding("utf-8");
 
-	String url = "jdbc:mysql://localhost:3307/mojuk?useUnicode=true&characterEncoding=UTF-8";
+	Class.forName("com.mysql.jdbc.Driver");
+	String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
 	String id = "root";
 	String pass = "1234";
-	Class.forName("com.mysql.jdbc.Driver");
+	
 	String name = request.getParameter("name");
 	String password = request.getParameter("password");
 	String title = request.getParameter("title");

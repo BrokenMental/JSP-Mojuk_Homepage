@@ -4,10 +4,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <%
-	String url = "jdbc:mysql://localhost:3307/mojuk?useUnicode=true&characterEncoding=UTF-8";
+	Class.forName("com.mysql.jdbc.Driver");
+	String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
 	String id = "root";
 	String pass = "1234";
-	Class.forName("com.mysql.jdbc.Driver");
 	String password = "";
 
 	try {
@@ -34,8 +34,8 @@
 %>
 <script language=javascript>
 				  	self.window.alert("글이 수정되었습니다.");
-				  	location.href="Board_View.jsp?idx=<%=idx%>";
-
+				  	location.href="Board_View.jsp?idx=<%=idx%>
+	";
 </script>
 <%
 	rs.close();

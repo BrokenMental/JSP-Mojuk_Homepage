@@ -38,7 +38,7 @@
 
 <%
 	int idx = Integer.parseInt(request.getParameter("idx"));
-	String url = "jdbc:mysql://localhost:3307/mojuk?useUnicode=true&characterEncoding=UTF-8";
+	String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
 	String id = "root";
 	String pass = "1234";
 	Class.forName("com.mysql.jdbc.Driver");
