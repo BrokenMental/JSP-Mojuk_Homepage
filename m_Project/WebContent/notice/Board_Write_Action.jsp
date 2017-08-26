@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 
-    pageEncoding="utf-8"%>
+    pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>  
 <%	
-	request.setCharacterEncoding("utf-8");
+	request.setCharacterEncoding("UTF-8");
 
 	Class.forName("com.mysql.jdbc.Driver");
 	String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
@@ -67,7 +67,7 @@
 %>
   <script language=javascript>
    self.window.alert("입력한 글을 저장하였습니다.");
-   location.href="Board_List.jsp"; 
+   location.href="../notice.jsp"; 
 
 </script>
 

@@ -9,12 +9,6 @@
 	String memo = request.getParameter("memo");
 	String hit = request.getParameter("hit");
 
-	System.out.println(name);
-	System.out.println(password);
-	System.out.println(title);
-	System.out.println(memo);
-	System.out.println(hit);
-
 	int max = 0;
 
 	try {
@@ -51,6 +45,6 @@
 %>
 <script>
 	self.window.alert("입력한 글을 저장하였습니다.");
-	location.href = "list.jsp";
+	location.href = "../board.jsp";
 </script>
 

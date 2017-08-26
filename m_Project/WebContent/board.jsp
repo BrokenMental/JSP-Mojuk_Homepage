@@ -58,8 +58,6 @@
 			<!-- 하단(본문) -->
 			<div id="main_ground">
 				<div id="main">
-					<center>
-					</center>
 				</div>
 			</div>
 			<!-- main ground_end -->

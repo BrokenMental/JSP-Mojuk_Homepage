@@ -19,7 +19,7 @@ com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 		e.printStackTrace();
 	}
 
-	String filename = multi.getFilesystemName("filename");
+	//String filename = multi.getFilesystemName("filename");
 
 	Class.forName("com.mysql.jdbc.Driver");
 

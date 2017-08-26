@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%
 	int idx = Integer.parseInt(request.getParameter("idx"));
@@ -28,107 +28,163 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>∞‘Ω√∆«</title>
+<title>Í≤åÏãúÌåê</title>
 <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="../css/main.css" />
 </head>
 <body>
-	<table>
-		<tr>
-			<td>
-				<table width="100%" cellpadding="0" cellspacing="0" border="0">
-					<tr
-						style="background: url('photo/table_mid.gif') repeat-x; text-align: center;">
-						<td width="5"><img src="photo/table_left.gif" width="5"
-							height="30" /></td>
-						<td>≥ª øÎ</td>
-						<td width="5"><img src="photo/table_right.gif" width="5"
-							height="30" /></td>
-					</tr>
-				</table>
-				<table width="413">
-					<tr>
-						<td width="0">&nbsp;</td>
-						<td align="center" width="76">±€π¯»£</td>
-						<td width="319"><%=idx%></td>
-						<td width="0">&nbsp;</td>
-					</tr>
-					<tr height="1" bgcolor="#dddddd">
-						<td colspan="4" width="407"></td>
-					</tr>
-					<tr>
-						<td width="0">&nbsp;</td>
-						<td align="center" width="76">¡∂»∏ºˆ</td>
-						<td width="319"><%=hit%></td>
-						<td width="0">&nbsp;</td>
-					</tr>
-					<tr height="1" bgcolor="#dddddd">
-						<td colspan="4" width="407"></td>
-					</tr>
-					<tr>
-						<td width="0">&nbsp;</td>
-						<td align="center" width="76">¿Ã∏ß</td>
-						<td width="319"><%=name%></td>
-						<td width="0">&nbsp;</td>
-					</tr>
-					<tr height="1" bgcolor="#dddddd">
-						<td colspan="4" width="407"></td>
-					</tr>
-					<tr>
-						<td width="0">&nbsp;</td>
-						<td align="center" width="76">¿€º∫¿œ</td>
-						<td width="319"><%=time%></td>
-						<td width="0">&nbsp;</td>
-					</tr>
-					<tr height="1" bgcolor="#dddddd">
-						<td colspan="4" width="407"></td>
-					</tr>
-					<tr>
-						<td width="0">&nbsp;</td>
-						<td align="center" width="76">¡¶∏Ò</td>
-						<td width="319"><%=title%></td>
-						<td width="0">&nbsp;</td>
-					</tr>
-					<tr height="1" bgcolor="#dddddd">
-						<td colspan="4" width="407"></td>
-					</tr>
-					<tr>
-						<td width="0"></td>
-						<td width="399" colspan="2" height="200"><%=memo%>
-					</tr>
-					<%
-						sql = "UPDATE board SET HIT=" + hit + " where NUM=" + idx;
-								stmt.executeUpdate(sql);
-								rs.close();
-								stmt.close();
-								conn.close();
+	<div style="width: 0px; margin: auto;">
+		<div id="container">
+			<!-- ÏÉÅÎã® -->
+			<%@include file="../include/top.jsp"%>
+			<div class="bar"></div>
+			<!-- ÏÉÅÎã® Î©îÎâ¥ -->
+			<div id="menu">
+				<div class="logo">
+					<a href="../main.jsp"><img src="../img/logo.png" width="160"
+						height="60"></a>
+				</div>
+				<div class="menu" style="margin-left: 345px;">
+					<h3>
+						<a href="../mojuk.jsp"
+							style="text-decoration: none !important; color: black;">Î™®Ï£Ω</a>
+					</h3>
+				</div>
+				<div class="menu">
+					<h3>
+						<a href="../notice.jsp"
+							style="text-decoration: none !important; color: black;">Í≥µÏßÄÏÇ¨Ìï≠</a>
+					</h3>
+				</div>
+				<div class="menu">
+					<h3>
+						<a href="../project.jsp"
+							style="text-decoration: none !important; color: black;">ÌîÑÎ°úÏ†ùÌä∏</a>
+					</h3>
+				</div>
+				<div class="menu">
+					<h3>
+						<a href="../board.jsp"
+							style="text-decoration: none !important; color: black;">ÏûêÏú†Í≤åÏãúÌåê</a>
+					</h3>
+				</div>
+				<div class="menu">
+					<h3>
+						<a href="../gall.jsp"
+							style="text-decoration: none !important; color: black;">Í∞§Îü¨Î¶¨</a>
+					</h3>
+				</div>
+			</div>
+			<!-- Î©îÏù∏ Ïù¥ÎØ∏ÏßÄ -->
+			<div id="main_img">
+				<img src="../img/main_img.png">
+			</div>
+			<!-- ÌïòÎã®(Î≥∏Î¨∏) -->
+			<div id="main_ground">
+				<div id="main"></div>
+			</div>
+			<!-- main ground_end -->
+		</div>
+		<!-- container_end -->
+	</div>
+	<center>
+		<table>
+			<tr>
+				<td>
+					<table width="100%" cellpadding="0" cellspacing="0" border="0">
+						<tr
+							style="background: url('photo/table_mid.gif') repeat-x; text-align: center;">
+							<td width="5"><img src="photo/table_left.gif" width="5"
+								height="30" /></td>
+							<td>ÎÇ¥ Ïö©</td>
+							<td width="5"><img src="photo/table_right.gif" width="5"
+								height="30" /></td>
+						</tr>
+					</table>
+					<table width="413">
+						<tr>
+							<td width="0">&nbsp;</td>
+							<td align="center" width="76">Í∏ÄÎ≤àÌò∏</td>
+							<td width="319"><%=idx%></td>
+							<td width="0">&nbsp;</td>
+						</tr>
+						<tr height="1" bgcolor="#dddddd">
+							<td colspan="4" width="407"></td>
+						</tr>
+						<tr>
+							<td width="0">&nbsp;</td>
+							<td align="center" width="76">Ï°∞ÌöåÏàò</td>
+							<td width="319"><%=hit%></td>
+							<td width="0">&nbsp;</td>
+						</tr>
+						<tr height="1" bgcolor="#dddddd">
+							<td colspan="4" width="407"></td>
+						</tr>
+						<tr>
+							<td width="0">&nbsp;</td>
+							<td align="center" width="76">Ïù¥Î¶Ñ</td>
+							<td width="319"><%=name%></td>
+							<td width="0">&nbsp;</td>
+						</tr>
+						<tr height="1" bgcolor="#dddddd">
+							<td colspan="4" width="407"></td>
+						</tr>
+						<tr>
+							<td width="0">&nbsp;</td>
+							<td align="center" width="76">ÏûëÏÑ±Ïùº</td>
+							<td width="319"><%=time%></td>
+							<td width="0">&nbsp;</td>
+						</tr>
+						<tr height="1" bgcolor="#dddddd">
+							<td colspan="4" width="407"></td>
+						</tr>
+						<tr>
+							<td width="0">&nbsp;</td>
+							<td align="center" width="76">Ï†úÎ™©</td>
+							<td width="319"><%=title%></td>
+							<td width="0">&nbsp;</td>
+						</tr>
+						<tr height="1" bgcolor="#dddddd">
+							<td colspan="4" width="407"></td>
+						</tr>
+						<tr>
+							<td width="0"></td>
+							<td width="399" colspan="2" height="200"><%=memo%>
+						</tr>
+						<%
+							sql = "UPDATE board SET HIT=" + hit + " where NUM=" + idx;
+									stmt.executeUpdate(sql);
+									rs.close();
+									stmt.close();
+									conn.close();
+								}
+							} catch (SQLException e) {
 							}
-						} catch (SQLException e) {
-						}
-					%>
-					<tr height="1" bgcolor="#dddddd">
-						<td colspan="4" width="407"></td>
-					</tr>
-					<tr height="1" bgcolor="#82B5DF">
-						<td colspan="4" width="407"></td>
-					</tr>
-					<tr align="center">
-						<td width="0">&nbsp;</td>
-						<td colspan="2" width="399"><input type=button value="±€æ≤±‚"
-							OnClick="window.location='write.jsp'"> <input type=button
-							value="¥‰±€" OnClick="window.location='reply.jsp?idx=<%=idx%>'">
-							<input type=button value="∏Ò∑œ"
-							OnClick="window.location='list.jsp'"> <input type=button
-							value="ºˆ¡§" OnClick="window.location='modify.jsp?idx=<%=idx%>'">
-							<input type=button value="ªË¡¶"
-							OnClick="window.location='delete.jsp?idx=<%=idx%>'">
-						<td width="0">&nbsp;</td>
-					</tr>
-				</table>
-			</td>
-		</tr>
-	</table>
+						%>
+						<tr height="1" bgcolor="#dddddd">
+							<td colspan="4" width="407"></td>
+						</tr>
+						<tr height="1" bgcolor="#82B5DF">
+							<td colspan="4" width="407"></td>
+						</tr>
+						<tr align="center">
+							<td width="0">&nbsp;</td>
+							<td colspan="2" width="399"><input
+								type=button value="ÎãµÍ∏Ä"
+								OnClick="window.location='../board/reply.jsp?idx=<%=idx%>'"> <input
+								type=button value="Î™©Î°ù" OnClick="window.location='../board.jsp'">
+								<input type=button value="ÏàòÏ†ï"
+								OnClick="window.location='../board/modify.jsp?idx=<%=idx%>'"> <input
+								type=button value="ÏÇ≠Ï†ú"
+								OnClick="window.location='../board/delete.jsp?idx=<%=idx%>'">
+							<td width="0">&nbsp;</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</center>
 </body>
-
 </html>
 
 

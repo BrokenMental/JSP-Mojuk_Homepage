@@ -120,7 +120,7 @@
  				if (indent != 0) {
  %> <img src='photo/reply_icon.gif' /> <%
  	}
- %> <a href="view.jsp?idx=<%=idx%>&pg=<%=pg%>"><%=title%></a> <%
+ %> <a href="board/view.jsp?idx=<%=idx%>&pg=<%=pg%>"><%=title%></a> <%
  	if (year.equals(yea)) {
  %> <img src='photo/new.jpg' /> <%
  	}
@@ -157,8 +157,8 @@
 			<td align="center">
 				<%
 					if (pg > BLOCK) {
-				%> [<a href="list.jsp?pg=1">◀◀</a>] [<a
-				href="list.jsp?pg=<%=startPage - 1%>">◀</a>] <%
+				%> [<a href="board.jsp?pg=1">◀◀</a>] [<a
+				href="board.jsp?pg=<%=startPage - 1%>">◀</a>] <%
 					}
 				%> <%
  	for (int i = startPage; i <= endPage; i++) {
@@ -166,20 +166,20 @@
  %> <u><b>[<%=i%>]
 				</b></u> <%
  	} else {
- %> [<a href="list.jsp?pg=<%=i%>"><%=i%></a>] <%
+ %> [<a href="board.jsp?pg=<%=i%>"><%=i%></a>] <%
  	}
  	}
  %> <%
  	if (endPage < allPage) {
- %> [<a href="list.jsp?pg=<%=endPage + 1%>">▶</a>] [<a
-				href="list.jsp?pg=<%=allPage%>">▶▶</a>] <%
+ %> [<a href="board.jsp?pg=<%=endPage + 1%>">▶</a>] [<a
+				href="board.jsp?pg=<%=allPage%>">▶▶</a>] <%
  	}
  %>
 			</td>
 		</tr>
 		<tr align="center">
 			<td><input type=button value="글쓰기"
-				OnClick="window.location='write.jsp'"></td>
+				OnClick="window.location='board/write.jsp'"></td>
 		</tr>
 	</table>
 </body>

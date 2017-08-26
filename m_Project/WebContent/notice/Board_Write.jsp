@@ -1,115 +1,171 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-
-<script language="javascript">
-	// ÀÚ¹Ù ½ºÅ©¸³Æ® ½ÃÀÛ
-
-	function writeCheck() {
-		var form = document.writeform;
-
-		if (!form.name.value) // form ¿¡ ÀÖ´Â name °ªÀÌ ¾øÀ» ¶§
-		{
-			alert("ÀÌ¸§À» Àû¾îÁÖ¼¼¿ä"); // °æ°íÃ¢ ¶ç¿ò
-			form.name.focus(); // form ¿¡ ÀÖ´Â name À§Ä¡·Î ÀÌµ¿
-			return;
-		}
-
-		if (!form.password.value) {
-			alert("ºñ¹Ğ¹øÈ£¸¦ Àû¾îÁÖ¼¼¿ä");
-			form.password.focus();
-			return;
-		}
-
-		if (!form.title.value) {
-			alert("Á¦¸ñÀ» Àû¾îÁÖ¼¼¿ä");
-			form.title.focus();
-			return;
-		}
-
-		if (!form.memo.value) {
-			alert("³»¿ëÀ» Àû¾îÁÖ¼¼¿ä");
-			form.memo.focus();
-			return;
-		}
-
-		form.submit();
-	}
-</script>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>°Ô½ÃÆÇ</title>
+<title>ê²Œì‹œíŒ</title>
 <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="../css/main.css" />
 </head>
 <body>
-	<table>
-		<form name=writeform method=post action="Board_Write_action.jsp">
-			<tr>
-				<td>
-					<table width="100%" cellpadding="0" cellspacing="0" border="0">
-						<tr
-							style="background: url('img/table_mid.gif') repeat-x; text-align: center;">
-							<td width="5"><img src="img/table_left.gif" width="5"
-								height="30" /></td>
-							<td>±Û¾²±â</td>
-							<td width="5"><img src="img/table_right.gif" width="5"
-								height="30" /></td>
-						</tr>
-					</table>
-					<table>
-						<tr>
-							<td>&nbsp;</td>
-							<td align="center">Á¦¸ñ</td>
-							<td><input name="title" size="50" maxlength="100"></td>
-							<td>&nbsp;</td>
-						</tr>
-						<tr height="1" bgcolor="#dddddd">
-							<td colspan="4"></td>
-						</tr>
-						<tr>
-							<td>&nbsp;</td>
-							<td align="center">ÀÌ¸§</td>
-							<td><input name="name" size="50" maxlength="50"></td>
-							<td>&nbsp;</td>
-						</tr>
-						<tr height="1" bgcolor="#dddddd">
-							<td colspan="4"></td>
-						</tr>
-						<tr>
-							<td>&nbsp;</td>
-							<td align="center">ºñ¹Ğ¹øÈ£</td>
-							<td><input type="password" name="password" size="50"
-								maxlength="50"></td>
-							<td>&nbsp;</td>
-						</tr>
-						<tr height="1" bgcolor="#dddddd">
-							<td colspan="4"></td>
-						</tr>
-						<tr>
-							<td>&nbsp;</td>
-							<td align="center">³»¿ë</td>
-							<td><textarea name="memo" cols="50" rows="13"></textarea></td>
-							<td>&nbsp;</td>
-						</tr>
-						<tr height="1" bgcolor="#dddddd">
-							<td colspan="4"></td>
-						</tr>
-						<tr height="1" bgcolor="#82B5DF">
-							<td colspan="4"></td>
-						</tr>
-						<tr align="center">
-							<td>&nbsp;</td>
-							<td colspan="2"><input type=button value="µî·Ï"
-								OnClick="javascript:writeCheck();"> <input type=button
-								value="Ãë¼Ò" OnClick="javascript:history.back(-1)">
-							<td>&nbsp;</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-		</form>
-	</table>
+	<div style="width: 0px; margin: auto;">
+		<div id="container">
+			<!-- ìƒë‹¨ -->
+			<%@include file="../include/top.jsp"%>
+			<div class="bar"></div>
+			<!-- ìƒë‹¨ ë©”ë‰´ -->
+			<div id="menu">
+				<div class="logo">
+					<a href="../main.jsp"><img src="../img/logo.png" width="160"
+						height="60"></a>
+				</div>
+				<div class="menu" style="margin-left: 345px;">
+					<h3>
+						<a href="../mojuk.jsp"
+							style="text-decoration: none !important; color: black;">ëª¨ì£½</a>
+					</h3>
+				</div>
+				<div class="menu">
+					<h3>
+						<a href="../notice.jsp"
+							style="text-decoration: none !important; color: black;">ê³µì§€ì‚¬í•­</a>
+					</h3>
+				</div>
+				<div class="menu">
+					<h3>
+						<a href="../project.jsp"
+							style="text-decoration: none !important; color: black;">í”„ë¡œì íŠ¸</a>
+					</h3>
+				</div>
+				<div class="menu">
+					<h3>
+						<a href="../board.jsp"
+							style="text-decoration: none !important; color: black;">ììœ ê²Œì‹œíŒ</a>
+					</h3>
+				</div>
+				<div class="menu">
+					<h3>
+						<a href="../gall.jsp"
+							style="text-decoration: none !important; color: black;">ê°¤ëŸ¬ë¦¬</a>
+					</h3>
+				</div>
+			</div>
+			<!-- ë©”ì¸ ì´ë¯¸ì§€ -->
+			<div id="main_img">
+				<img src="../img/main_img.png">
+			</div>
+			<!-- í•˜ë‹¨(ë³¸ë¬¸) -->
+			<div id="main_ground">
+				<div id="main"></div>
+			</div>
+			<!-- main ground_end -->
+		</div>
+		<!-- container_end -->
+	</div>
+	<center>
+		<table>
+			<form name=writeform method=post
+				action="../notice/Board_Write_Action.jsp">
+				<tr>
+					<td>
+						<table width="100%" cellpadding="0" cellspacing="0" border="0">
+							<tr
+								style="background: url('img/table_mid.gif') repeat-x; text-align: center;">
+								<td width="5"><img src="img/table_left.gif" width="5"
+									height="30" /></td>
+								<td>ê¸€ì“°ê¸°</td>
+								<td width="5"><img src="img/table_right.gif" width="5"
+									height="30" /></td>
+							</tr>
+						</table>
+						<table>
+							<tr>
+								<td>&nbsp;</td>
+								<td align="center">ì œëª©</td>
+								<td><input name="title" size="50" maxlength="100"></td>
+								<td>&nbsp;</td>
+							</tr>
+							<tr height="1" bgcolor="#dddddd">
+								<td colspan="4"></td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td align="center">ì´ë¦„</td>
+								<td><input name="name" size="50" maxlength="50"></td>
+								<td>&nbsp;</td>
+							</tr>
+							<tr height="1" bgcolor="#dddddd">
+								<td colspan="4"></td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td align="center">ë¹„ë°€ë²ˆí˜¸</td>
+								<td><input type="password" name="password" size="50"
+									maxlength="50"></td>
+								<td>&nbsp;</td>
+							</tr>
+							<tr height="1" bgcolor="#dddddd">
+								<td colspan="4"></td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+								<td align="center">ë‚´ìš©</td>
+								<td><textarea name="memo" cols="50" rows="13"></textarea></td>
+								<td>&nbsp;</td>
+							</tr>
+							<tr height="1" bgcolor="#dddddd">
+								<td colspan="4"></td>
+							</tr>
+							<tr height="1" bgcolor="#82B5DF">
+								<td colspan="4"></td>
+							</tr>
+							<tr align="center">
+								<td>&nbsp;</td>
+								<td colspan="2"><input type=button value="ë“±ë¡"
+									OnClick="javascript:writeCheck();"> <input type=button
+									value="ì·¨ì†Œ" OnClick="javascript:history.back(-1)">
+								<td>&nbsp;</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</form>
+		</table>
+	</center>
+	<script language="javascript">
+		// ìë°” ìŠ¤í¬ë¦½íŠ¸ ì‹œì‘
+
+		function writeCheck() {
+			var form = document.writeform;
+
+			if (!form.name.value) // form ì— ìˆëŠ” name ê°’ì´ ì—†ì„ ë•Œ
+			{
+				alert("ì´ë¦„ì„ ì ì–´ì£¼ì„¸ìš”"); // ê²½ê³ ì°½ ë„ì›€
+				form.name.focus(); // form ì— ìˆëŠ” name ìœ„ì¹˜ë¡œ ì´ë™
+				return;
+			}
+
+			if (!form.password.value) {
+				alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì ì–´ì£¼ì„¸ìš”");
+				form.password.focus();
+				return;
+			}
+
+			if (!form.title.value) {
+				alert("ì œëª©ì„ ì ì–´ì£¼ì„¸ìš”");
+				form.title.focus();
+				return;
+			}
+
+			if (!form.memo.value) {
+				alert("ë‚´ìš©ì„ ì ì–´ì£¼ì„¸ìš”");
+				form.memo.focus();
+				return;
+			}
+
+			form.submit();
+		}
+	</script>
 </body>
 </html>
 

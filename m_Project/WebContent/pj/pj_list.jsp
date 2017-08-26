@@ -120,7 +120,7 @@
  				if (indent != 0) {
  %> <img src='image/reply_icon.gif' /> <%
  	}
- %> <a href="pj_view.jsp?idx=<%=idx%>"><%=title%></a> <%
+ %> <a href="pj/pj_view.jsp?idx=<%=idx%>"><%=title%></a> <%
  	if (year.equals(yea)) {
  %> <img src='image/new.jpg' /> <%
  	}
@@ -157,8 +157,8 @@
 			<td align="center">
 				<%
 					if (pg > BLOCK) {
-				%> [<a href="pj_list.jsp?pg=1">◀◀</a>] [<a
-				href="pj_list.jsp?pg=<%=startPage - 1%>">◀</a>] <%
+				%> [<a href="project.jsp?pg=1">◀◀</a>] [<a
+				href="project.jsp?pg=<%=startPage - 1%>">◀</a>] <%
 					}
 				%> <%
  	for (int i = startPage; i <= endPage; i++) {
@@ -166,13 +166,13 @@
  %> <u><b>[<%=i%>]
 				</b></u> <%
  	} else {
- %> [<a href="pj_list.jsp?pg=<%=i%>"><%=i%></a>] <%
+ %> [<a href="project.jsp?pg=<%=i%>"><%=i%></a>] <%
  	}
  	}
  %> <%
  	if (endPage < allPage) {
- %> [<a href="pj_list.jsp?pg=<%=endPage + 1%>">▶</a>] [<a
-				href="pj_list.jsp?pg=<%=allPage%>">▶▶</a>] <%
+ %> [<a href="project.jsp?pg=<%=endPage + 1%>">▶</a>] [<a
+				href="project.jsp?pg=<%=allPage%>">▶▶</a>] <%
  	}
  %>
 			</td>
