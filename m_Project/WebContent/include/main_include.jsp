@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>홈페이지 메인</title>
-<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
-<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="../css/main.css" />
 </head>
 <body>
 	<div style="width: 0px; margin: auto;">
@@ -40,18 +40,18 @@
 			<!-- 상단 메뉴 -->
 			<div id="menu">
 				<div class="logo">
-					<a href="main.jsp"><img src="img/logo.png" width="160"
+					<a href="../main.jsp"><img src="../img/logo.png" width="160"
 						height="60"></a>
 				</div>
 				<div class="menu" style="margin-left: 345px;">
 					<h3>
-						<a href="mojuk.jsp"
+						<a href="../mojuk.jsp"
 							style="text-decoration: none !important; color: black;">모죽</a>
 					</h3>
 				</div>
 				<div class="menu">
 					<h3>
-						<a href="notice/notice.jsp"
+						<a href="../notice/notice.jsp"
 							style="text-decoration: none !important; color: black;">공지사항</a>
 					</h3>
 				</div>
@@ -63,20 +63,20 @@
 				</div> -->
 				<div class="menu">
 					<h3>
-						<a href="board/list.jsp"
+						<a href="../board/list.jsp"
 							style="text-decoration: none !important; color: black;">자유게시판</a>
 					</h3>
 				</div>
 				<div class="menu">
 					<h3>
-						<a href="gall.jsp"
+						<a href="../gall.jsp"
 							style="text-decoration: none !important; color: black;">갤러리</a>
 					</h3>
 				</div>
 			</div>
 			<!-- 메인 이미지 -->
 			<div id="main_img">
-				<img src="img/main_img.png">
+				<img src="../img/main_img.png">
 			</div>
 			<!-- 하단(본문) -->
 			<div id="main_ground">

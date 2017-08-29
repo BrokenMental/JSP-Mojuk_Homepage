@@ -68,9 +68,10 @@
 <html>
 <head>
 <title>게시판</title>
-<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" />
 </head>
 <body>
+	<%@include file="../include/main_include.jsp"%>
 	<table>
 		<form name=replyform method=post action="reply_ok.jsp?idx=<%=idx%>">
 			<tr>

@@ -24,9 +24,10 @@
 <html>
 <head>
 <title>게시판</title>
-<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" />
 </head>
 <body>
+<%@include file="../include/main_include.jsp" %>
 	<%
 		String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
 		String id = "root";
@@ -68,7 +69,7 @@
 			out.print("총 게시물 : " + total + "개");
 
 			String sqlList = "SELECT NUM, USERNAME, TITLE, TIME, HIT, INDENT from board where STEP2 >=" + start
-					+ " and STEP2 <= " + end + " order by step2 asc";
+					+ " and STEP2 <= " + end + " order by step2 desc";
 			rs = stmt.executeQuery(sqlList);
 	%>
 	<table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -118,11 +119,11 @@
 				%> &nbsp;&nbsp;&nbsp;<%
  	}
  				if (indent != 0) {
- %> <img src='photo/reply_icon.gif' /> <%
+ %> <img src='../img/reply_icon.gif' /> <%
  	}
- %> <a href="board/view.jsp?idx=<%=idx%>&pg=<%=pg%>"><%=title%></a> <%
+ %> <a href="view.jsp?idx=<%=idx%>&pg=<%=pg%>"><%=title%></a> <%
  	if (year.equals(yea)) {
- %> <img src='photo/new.jpg' /> <%
+ %> <img src='../img/new.jpg' /> <%
  	}
  %>
 			</td>
@@ -157,8 +158,8 @@
 			<td align="center">
 				<%
 					if (pg > BLOCK) {
-				%> [<a href="board.jsp?pg=1">◀◀</a>] [<a
-				href="board.jsp?pg=<%=startPage - 1%>">◀</a>] <%
+				%> [<a href="list.jsp?pg=1">◀◀</a>] [<a
+				href="list.jsp?pg=<%=startPage - 1%>">◀</a>] <%
 					}
 				%> <%
  	for (int i = startPage; i <= endPage; i++) {
@@ -166,20 +167,20 @@
  %> <u><b>[<%=i%>]
 				</b></u> <%
  	} else {
- %> [<a href="board.jsp?pg=<%=i%>"><%=i%></a>] <%
+ %> [<a href="list.jsp?pg=<%=i%>"><%=i%></a>] <%
  	}
  	}
  %> <%
  	if (endPage < allPage) {
- %> [<a href="board.jsp?pg=<%=endPage + 1%>">▶</a>] [<a
-				href="board.jsp?pg=<%=allPage%>">▶▶</a>] <%
+ %> [<a href="list.jsp?pg=<%=endPage + 1%>">▶</a>] [<a
+				href="list.jsp?pg=<%=allPage%>">▶▶</a>] <%
  	}
  %>
 			</td>
 		</tr>
 		<tr align="center">
 			<td><input type=button value="글쓰기"
-				OnClick="window.location='board/write.jsp'"></td>
+				OnClick="window.location='write.jsp'"></td>
 		</tr>
 	</table>
 </body>

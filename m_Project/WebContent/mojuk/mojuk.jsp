@@ -8,7 +8,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
 </head>
 <body>
-	<%@include file="main.jsp" %>
+	<%@include file="../main.jsp" %>
 	<div id="main_ground">
 		<div id="main">
 			<!-- ¸Þ´º -->

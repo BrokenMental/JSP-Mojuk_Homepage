@@ -8,7 +8,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
 </head>
 <body>
-<%@include file="main.jsp" %>
+<%@include file="../include/main_include.jsp" %>
 	<div id="main_ground">
 		<div id="main">
 			<!-- ¸Þ´º -->
@@ -43,7 +43,7 @@
 		</div>
 		<!-- main_end -->
 	</div>
-	<%@include file="include/bottom.jsp"%>
+	<%@include file="../include/bottom.jsp"%>
 	<script>
 		function showtab(a) {
 			for (i = 0; i <= 1; i++) {
