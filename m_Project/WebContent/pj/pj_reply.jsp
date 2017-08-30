@@ -69,21 +69,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>게시물 답글</title>
-<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" />
 </head>
 <body>
-	<table>
-		<form name=replyform method=post action="pj_reply_ok.jsp?idx=<%=idx%>">
+	<%@include file="../include/main_include.jsp"%>
+	<form name=replyform method=post action="pj_reply_ok.jsp?idx=<%=idx%>">
+		<table>
 			<tr>
 				<td>
 					<table width="100%" cellpadding="0" cellspacing="0" border="0">
 						<tr
-							style="background: url('image/table_mid.gif') repeat-x; text-align: center;">
-							<td width="5"><img src="image/table_left.gif" width="5"
-											   height="30" /></td>
+							style="background: url('../img/table_mid.gif') repeat-x; text-align: center;">
+							<td width="5"><img src="../img/table_left.gif" width="5"
+								height="30" /></td>
 							<td>답글</td>
-							<td width="5"><img src="image/table_right.gif" width="5"
-											   height="30" /></td>
+							<td width="5"><img src="../img/table_right.gif" width="5"
+								height="30" /></td>
 						</tr>
 					</table>
 					<table>
@@ -137,6 +138,7 @@
 					</table>
 				</td>
 			</tr>
-	</table>
+		</table>
+	</form>
 </body>
 </html>

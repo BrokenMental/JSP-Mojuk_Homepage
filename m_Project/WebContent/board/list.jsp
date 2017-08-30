@@ -183,5 +183,6 @@
 				OnClick="window.location='write.jsp'"></td>
 		</tr>
 	</table>
+	<%@include file="../include/bottom.jsp"%>
 </body>
 </html>

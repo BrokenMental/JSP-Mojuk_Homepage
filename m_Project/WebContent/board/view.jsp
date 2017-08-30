@@ -39,11 +39,11 @@
 				<td>
 					<table width="100%" cellpadding="0" cellspacing="0" border="0">
 						<tr
-							style="background: url('photo/table_mid.gif') repeat-x; text-align: center;">
-							<td width="5"><img src="photo/table_left.gif" width="5"
+							style="background: url('../img/table_mid.gif') repeat-x; text-align: center;">
+							<td width="5"><img src="../img/table_left.gif" width="5"
 								height="30" /></td>
 							<td>내 용</td>
-							<td width="5"><img src="photo/table_right.gif" width="5"
+							<td width="5"><img src="../img/table_right.gif" width="5"
 								height="30" /></td>
 						</tr>
 					</table>
@@ -130,6 +130,7 @@
 			</tr>
 		</table>
 	</center>
+	<%@include file="../include/bottom.jsp"%>
 </body>
 </html>
 

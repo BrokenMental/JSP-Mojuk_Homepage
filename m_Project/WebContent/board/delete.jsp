@@ -1,46 +1,34 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<script language="javascript">
-	// ÀÚ¹Ù ½ºÅ©¸³Æ® ½ÃÀÛ
-
-	function deleteCheck() {
-		var form = document.deleteform;
-
-		if (!form.password.value) {
-			alert("ºñ¹Ğ¹øÈ£¸¦ Àû¾îÁÖ¼¼¿ä");
-			form.password.focus();
-			return;
-		}
-		form.submit();
-	}
-</script>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%
 	int idx = Integer.parseInt(request.getParameter("idx"));
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>°Ô½ÃÆÇ</title>
+<title>ê²Œì‹œíŒ</title>
+<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
 </head>
 <body>
-	<table>
-		<form name=deleteform method=post action="delete_ok.jsp?idx=<%=idx%>">
+	<%@include file="../include/main_include.jsp"%>
+	<form name=deleteform method=post action="delete_ok.jsp?idx=<%=idx%>">
+		<table>
 			<tr>
 				<td>
 					<table width="100%" cellpadding="0" cellspacing="0" border="0">
 						<tr
-							style="background: url('img/table_mid.gif') repeat-x; text-align: center;">
-							<td width="5"><img src="img/table_left.gif" width="5"
+							style="background: url('../img/table_mid.gif') repeat-x; text-align: center;">
+							<td width="5"><img src="../img/table_left.gif" width="5"
 								height="30" /></td>
-							<td>»èÁ¦</td>
-							<td width="5"><img src="img/table_right.gif" width="5"
+							<td>ì‚­ì œ</td>
+							<td width="5"><img src="../img/table_right.gif" width="5"
 								height="30" /></td>
 						</tr>
 					</table>
 					<table>
 						<tr>
 							<td>&nbsp;</td>
-							<td align="center">ºñ¹Ğ¹øÈ£</td>
+							<td align="center">ë¹„ë°€ë²ˆí˜¸</td>
 							<td><input name="password" type="password" size="50"
 								maxlength="100"></td>
 							<td>&nbsp;</td>
@@ -53,16 +41,31 @@
 						</tr>
 						<tr align="center">
 							<td>&nbsp;</td>
-							<td colspan="2"><input type=button value="»èÁ¦"
+							<td colspan="2"><input type=button value="ì‚­ì œ"
 								OnClick="javascript:deleteCheck();"> <input type=button
-								value="Ãë¼Ò" OnClick="javascript:history.back(-1)">
+								value="ì·¨ì†Œ" OnClick="javascript:history.back(-1)">
 							<td>&nbsp;</td>
 						</tr>
 					</table>
 				</td>
 			</tr>
-		</form>
-	</table>
+		</table>
+	</form>
+	<%@include file="../include/bottom.jsp"%>
+	<script language="javascript">
+		// ìë°” ìŠ¤í¬ë¦½íŠ¸ ì‹œì‘
+
+		function deleteCheck() {
+			var form = document.deleteform;
+
+			if (!form.password.value) {
+				alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì ì–´ì£¼ì„¸ìš”");
+				form.password.focus();
+				return;
+			}
+			form.submit();
+		}
+	</script>
 </body>
 </html>
 

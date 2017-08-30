@@ -1,18 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>홈페이지 메인</title>
-<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="../css/main.css" />
-</head>
-<body>
-	<div style="width: 0px; margin: auto;">
-		<div id="container">
-			<!-- 상단 -->
-			 <!-- 
+<div style="width: 0px; margin: auto;">
+	<div id="container">
+		<!-- 상단 -->
+		<!-- 
 			 
 			 MOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUK
 			 MOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUK
@@ -35,59 +27,50 @@
 			 MOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUK
 			 
 			 -->
-			<%@include file="../include/top.jsp"%>
-			<div class="bar"></div>
-			<!-- 상단 메뉴 -->
-			<div id="menu">
-				<div class="logo">
-					<a href="../main.jsp"><img src="../img/logo.png" width="160"
-						height="60"></a>
-				</div>
-				<div class="menu" style="margin-left: 345px;">
+		<%@include file="../include/top.jsp"%>
+		<div class="bar"></div>
+		<!-- 상단 메뉴 -->
+		<div id="menu">
+			<div class="logo">
+				<a href="../main.jsp"><img src="../img/logo.png" width="160"
+					height="60"></a>
+			</div>
+			<div class="menu" style="margin-left: 345px;">
+				<h3>
+					<a href="../mojuk/mojuk.jsp"
+						style="text-decoration: none !important; color: black;">모죽</a>
+				</h3>
+			</div>
+			<div class="menu">
+				<h3>
+					<a href="../notice/Board_List.jsp"
+						style="text-decoration: none !important; color: black;">공지사항</a>
+				</h3>
+			</div>
+			<div class="menu">
 					<h3>
-						<a href="../mojuk.jsp"
-							style="text-decoration: none !important; color: black;">모죽</a>
-					</h3>
-				</div>
-				<div class="menu">
-					<h3>
-						<a href="../notice/notice.jsp"
-							style="text-decoration: none !important; color: black;">공지사항</a>
-					</h3>
-				</div>
-				<!-- <div class="menu">
-					<h3>
-						<a href="pj/project.jsp"
+						<a href="../pj/pj_list.jsp"
 							style="text-decoration: none !important; color: black;">프로젝트</a>
 					</h3>
-				</div> -->
-				<div class="menu">
-					<h3>
-						<a href="../board/list.jsp"
-							style="text-decoration: none !important; color: black;">자유게시판</a>
-					</h3>
 				</div>
-				<div class="menu">
-					<h3>
-						<a href="../gall.jsp"
-							style="text-decoration: none !important; color: black;">갤러리</a>
-					</h3>
-				</div>
+			<div class="menu">
+				<h3>
+					<a href="../board/list.jsp"
+						style="text-decoration: none !important; color: black;">자유게시판</a>
+				</h3>
 			</div>
-			<!-- 메인 이미지 -->
-			<div id="main_img">
-				<img src="../img/main_img.png">
+			<div class="menu">
+				<h3>
+					<a href="../gall/gall.jsp"
+						style="text-decoration: none !important; color: black;">갤러리</a>
+				</h3>
 			</div>
-			<!-- 하단(본문) -->
-			<div id="main_ground">
-				<div id="main">
-					<center>
-					</center>
-				</div>
-			</div>
-			<!-- main ground_end -->
 		</div>
-		<!-- container_end -->
+		<!-- 메인 이미지 -->
+		<div id="main_img">
+			<img src="../img/main_img.png">
+		</div>
+		<!-- main ground_end -->
 	</div>
-</body>
-</html>
+	<!-- container_end -->
+</div>

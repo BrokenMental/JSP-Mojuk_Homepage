@@ -72,8 +72,8 @@
 </head>
 <body>
 	<%@include file="../include/main_include.jsp"%>
-	<table>
-		<form name=replyform method=post action="reply_ok.jsp?idx=<%=idx%>">
+	<form name=replyform method=post action="reply_ok.jsp?idx=<%=idx%>">
+		<table>
 			<tr>
 				<td>
 					<table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -137,9 +137,10 @@
 					</table>
 				</td>
 			</tr>
-	</table>
+		</table>
+	</form>
+	<%@include file="../include/bottom.jsp"%>
 </body>
-
 </html>
 
 

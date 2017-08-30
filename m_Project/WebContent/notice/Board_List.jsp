@@ -27,10 +27,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>게시판</title>
-<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+<title>공지사항</title>
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" />
 </head>
 <body>
+	<%@include file="../include/main_include.jsp"%>
 	<%
 		Class.forName("com.mysql.jdbc.Driver");
 		String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
@@ -123,7 +124,7 @@
  				if (indent != 0) {
  %> <img src='img/reply_icon.gif' /> <%
  	}
- %> <a href="notice/Board_View.jsp?idx=<%=idx%>"><%=title%></a> <%
+ %> <a href="Board_View.jsp?idx=<%=idx%>"><%=title%></a> <%
  	if (year.equals(yea)) {
  %> <img src='img/new.jpg' /> <%
  	}
@@ -159,8 +160,8 @@
 		<td align="center">
 			<%
 				if (pg > BLOCK) {
-			%> [ <a href="notice.jsp?pg=1">◀◀</a>] [ <a
-			href="notice.jsp?pg=<%=startPage - 1%>">◀</a>] <%
+			%> [ <a href="Board_List.jsp?pg=1">◀◀</a>] [ <a
+			href="Board_List.jsp?pg=<%=startPage - 1%>">◀</a>] <%
 				}
 			%> <%
  	for (int i = startPage; i <= endPage; i++) {
@@ -168,13 +169,13 @@
  %> <u><b>[<%=i%>]
 			</b></u> <%
  	} else {
- %> [ <a href="notice.jsp?pg=<%=i%>"><%=i%></a>] <%
+ %> [ <a href="Board_List.jsp?pg=<%=i%>"><%=i%></a>] <%
  	}
  	}
  %> <%
  	if (endPage < allPage) {
- %> [ <a href="notice.jsp?pg=<%=endPage + 1%>">▶</a>] [ <a
-			href="notice.jsp?pg=<%=allPage%>">▶▶</a>] <%
+ %> [ <a href="Board_List.jsp?pg=<%=endPage + 1%>">▶</a>] [ <a
+			href="Board_List.jsp?pg=<%=allPage%>">▶▶</a>] <%
  	}
  %>
 		</td>
@@ -182,9 +183,10 @@
 		<tr align="center">
 
 			<td><input type=button value="글쓰기"
-				OnClick="window.location='notice/Board_Write.jsp'"></td>
+				OnClick="window.location='Board_Write.jsp'"></td>
 		</tr>
 	</table>
+	<%@include file="../include/bottom.jsp"%>
 </body>
 </html>
 

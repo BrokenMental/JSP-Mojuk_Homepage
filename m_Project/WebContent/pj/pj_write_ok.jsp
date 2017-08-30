@@ -12,7 +12,7 @@ com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 
 	MultipartRequest multi = null;
 	int sizeLimit = 10 * 1024 * 1024; //10MB
-	String savePath = request.getRealPath("/pj_upload"); //파일이 업로드 될 실제 tomcat 폴더의 Webcontent 기준
+	String savePath = request.getRealPath("pj/pj_upload"); //파일이 업로드 될 실제 tomcat 폴더의 Webcontent 기준
 	try {
 		multi = new MultipartRequest(request, savePath, sizeLimit, "UTF-8", new DefaultFileRenamePolicy());
 	} catch (Exception e) {
@@ -63,5 +63,5 @@ com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 %>
 <script language=javascript>
 	self.window.alert("입력한 글을 저장하였습니다.");
-	location.href = "main.jsp";
+	location.href = "pj_list.jsp";
 </script>

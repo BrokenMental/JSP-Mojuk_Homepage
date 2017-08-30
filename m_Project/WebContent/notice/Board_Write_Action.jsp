@@ -67,7 +67,7 @@
 %>
   <script language=javascript>
    self.window.alert("입력한 글을 저장하였습니다.");
-   location.href="../notice.jsp"; 
+   location.href="Board_List.jsp"; 
 
 </script>
 

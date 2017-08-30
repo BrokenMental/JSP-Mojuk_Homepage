@@ -34,8 +34,7 @@
 %>
 <script language=javascript>
 				  	self.window.alert("글이 수정되었습니다.");
-				  	location.href="Board_View.jsp?idx=<%=idx%>
-	";
+				  	location.href="Board_View.jsp?idx=<%=idx%>";
 </script>
 <%
 	rs.close();

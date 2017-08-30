@@ -30,7 +30,7 @@
 %>
 <script language=javascript>
 	self.window.alert("해당 글을 삭제하였습니다.");
-	location.href = "main.jsp";
+	location.href = "pj_list.jsp";
 </script>
 
 <%

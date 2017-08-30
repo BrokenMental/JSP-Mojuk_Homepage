@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>글 수정</title>
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" />
 </head>
 
 <script>
@@ -28,19 +29,18 @@ body {
 </style>
 
 <body>
-
-	<table summary="글수정 전체 테이블">
-		<form name="BoardUpdateForm" method="post"
-			action="Board_Write_action.jsp" onsubmit="return boardUpdateCheck();">
-
+	<%@include file="../include/main_include.jsp"%>
+	<form name="BoardUpdateForm" method="post"
+		action="Board_Write_action.jsp" onsubmit="return boardUpdateCheck();">
+		<table summary="글수정 전체 테이블">
 			<colgroup>
 				<col width="20%">
 				<col width="80%">
 			</colgroup>
-
-
 			<table summary="테이블 구성">
-				<caption><b>글 수정하기</b></caption>
+				<caption>
+					<b>글 수정하기</b>
+				</caption>
 				<tr>
 					<td>작성자</td>
 					<td><input type=text name=name size=10 maxlength=8></td>
@@ -76,8 +76,8 @@ body {
 						</div></td>
 				</tr>
 			</table>
-		</form>
-	</table>
-
+		</table>
+	</form>
+	<%@include file="../include/bottom.jsp"%>
 </body>
 </html>

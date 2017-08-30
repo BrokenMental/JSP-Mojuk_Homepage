@@ -4,68 +4,14 @@
 <html>
 <head>
 <title>게시판</title>
-<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
-<link rel="stylesheet" type="text/css" href="../css/main.css" />
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" />
 </head>
 <body>
-	<div style="width: 0px; margin: auto;">
-		<div id="container">
-			<!-- 상단 -->
-			<%@include file="../include/top.jsp"%>
-			<div class="bar"></div>
-			<!-- 상단 메뉴 -->
-			<div id="menu">
-				<div class="logo">
-					<a href="../main.jsp"><img src="../img/logo.png" width="160"
-						height="60"></a>
-				</div>
-				<div class="menu" style="margin-left: 345px;">
-					<h3>
-						<a href="../mojuk.jsp"
-							style="text-decoration: none !important; color: black;">모죽</a>
-					</h3>
-				</div>
-				<div class="menu">
-					<h3>
-						<a href="../notice.jsp"
-							style="text-decoration: none !important; color: black;">공지사항</a>
-					</h3>
-				</div>
-				<div class="menu">
-					<h3>
-						<a href="../project.jsp"
-							style="text-decoration: none !important; color: black;">프로젝트</a>
-					</h3>
-				</div>
-				<div class="menu">
-					<h3>
-						<a href="../board.jsp"
-							style="text-decoration: none !important; color: black;">자유게시판</a>
-					</h3>
-				</div>
-				<div class="menu">
-					<h3>
-						<a href="../gall.jsp"
-							style="text-decoration: none !important; color: black;">갤러리</a>
-					</h3>
-				</div>
-			</div>
-			<!-- 메인 이미지 -->
-			<div id="main_img">
-				<img src="../img/main_img.png">
-			</div>
-			<!-- 하단(본문) -->
-			<div id="main_ground">
-				<div id="main"></div>
-			</div>
-			<!-- main ground_end -->
-		</div>
-		<!-- container_end -->
-	</div>
+	<%@include file="../include/main_include.jsp"%>
 	<center>
-		<table>
-			<form name=writeform method=post
-				action="../notice/Board_Write_Action.jsp">
+		<form name=writeform method=post
+			action="../notice/Board_Write_Action.jsp">
+			<table>
 				<tr>
 					<td>
 						<table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -129,8 +75,8 @@
 						</table>
 					</td>
 				</tr>
-			</form>
-		</table>
+			</table>
+		</form>
 	</center>
 	<script language="javascript">
 		// 자바 스크립트 시작
@@ -166,6 +112,7 @@
 			form.submit();
 		}
 	</script>
+	<%@include file="../include/bottom.jsp"%>
 </body>
 </html>
 

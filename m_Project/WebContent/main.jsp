@@ -12,7 +12,7 @@
 	<div style="width: 0px; margin: auto;">
 		<div id="container">
 			<!-- 상단 -->
-			 <!-- 
+			<!-- 
 			 
 			 MOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUK
 			 MOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUKMOJUK
@@ -45,22 +45,22 @@
 				</div>
 				<div class="menu" style="margin-left: 345px;">
 					<h3>
-						<a href="mojuk.jsp"
+						<a href="mojuk/mojuk.jsp"
 							style="text-decoration: none !important; color: black;">모죽</a>
 					</h3>
 				</div>
 				<div class="menu">
 					<h3>
-						<a href="notice/notice.jsp"
+						<a href="notice/Board_List.jsp"
 							style="text-decoration: none !important; color: black;">공지사항</a>
 					</h3>
 				</div>
-				<!-- <div class="menu">
+				<div class="menu">
 					<h3>
-						<a href="pj/project.jsp"
+						<a href="pj/pj_list.jsp"
 							style="text-decoration: none !important; color: black;">프로젝트</a>
 					</h3>
-				</div> -->
+				</div>
 				<div class="menu">
 					<h3>
 						<a href="board/list.jsp"
@@ -69,7 +69,7 @@
 				</div>
 				<div class="menu">
 					<h3>
-						<a href="gall.jsp"
+						<a href="gall/gall.jsp"
 							style="text-decoration: none !important; color: black;">갤러리</a>
 					</h3>
 				</div>
@@ -81,13 +81,15 @@
 			<!-- 하단(본문) -->
 			<div id="main_ground">
 				<div id="main">
-					<center>
-					</center>
+					<center></center>
 				</div>
 			</div>
 			<!-- main ground_end -->
 		</div>
 		<!-- container_end -->
+	</div>
+	<div id="footer">
+		<img src="img/bottom.png">
 	</div>
 </body>
 </html>

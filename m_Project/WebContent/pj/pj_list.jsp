@@ -24,9 +24,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>프로젝트 게시판</title>
-<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" />
 </head>
 <body>
+	<%@include file="../include/main_include.jsp"%>
 	<%
 		String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
 		String id = "root";
@@ -76,15 +77,15 @@
 			<td width="5"></td>
 		</tr>
 		<tr
-			style="background: url('image/table_mid.gif') repeat-x; text-align: center;">
-			<td width="5"><img src="image/table_left.gif" width="5"
+			style="background: url('../img/table_mid.gif') repeat-x; text-align: center;">
+			<td width="5"><img src="../img/table_left.gif" width="5"
 				height="30" /></td>
 			<td width="70">번호</td>
 			<td width="380">제목</td>
 			<td width="70">작성자</td>
 			<td width="160">작성일</td>
 			<td width="60">조회수</td>
-			<td width="10"><img src="image/table_right.gif" width="5"
+			<td width="10"><img src="../img/table_right.gif" width="5"
 				height="30" /></td>
 		</tr>
 
@@ -118,11 +119,11 @@
 				%> &nbsp;&nbsp;&nbsp;<%
  	}
  				if (indent != 0) {
- %> <img src='image/reply_icon.gif' /> <%
+ %> <img src='../img/reply_icon.gif' /> <%
  	}
- %> <a href="pj/pj_view.jsp?idx=<%=idx%>"><%=title%></a> <%
+ %> <a href="pj_view.jsp?idx=<%=idx%>"><%=title%></a> <%
  	if (year.equals(yea)) {
- %> <img src='image/new.jpg' /> <%
+ %> <img src='../img/new.jpg' /> <%
  	}
  %>
 			</td>
@@ -157,8 +158,8 @@
 			<td align="center">
 				<%
 					if (pg > BLOCK) {
-				%> [<a href="project.jsp?pg=1">◀◀</a>] [<a
-				href="project.jsp?pg=<%=startPage - 1%>">◀</a>] <%
+				%> [<a href="pj_list.jsp?pg=1">◀◀</a>] [<a
+				href="pj_list.jsp?pg=<%=startPage - 1%>">◀</a>] <%
 					}
 				%> <%
  	for (int i = startPage; i <= endPage; i++) {
@@ -166,20 +167,20 @@
  %> <u><b>[<%=i%>]
 				</b></u> <%
  	} else {
- %> [<a href="project.jsp?pg=<%=i%>"><%=i%></a>] <%
+ %> [<a href="pj_list.jsp?pg=<%=i%>"><%=i%></a>] <%
  	}
  	}
  %> <%
  	if (endPage < allPage) {
- %> [<a href="project.jsp?pg=<%=endPage + 1%>">▶</a>] [<a
-				href="project.jsp?pg=<%=allPage%>">▶▶</a>] <%
+ %> [<a href="pj_list.jsp?pg=<%=endPage + 1%>">▶</a>] [<a
+				href="pj_list.jsp?pg=<%=allPage%>">▶▶</a>] <%
  	}
  %>
 			</td>
 		</tr>
 		<tr align="center">
 			<td><input type=button value="글쓰기"
-				OnClick="window.location='pj/pj_write.jsp'"></td>
+				OnClick="window.location='pj_write.jsp'"></td>
 		</tr>
 	</table>
 </body>

@@ -120,6 +120,7 @@
 			</tr>
 		</table>
 	</center>
+	<%@include file="../include/bottom.jsp"%>
 	<script language="javascript">
 		// 자바 스크립트 시작
 

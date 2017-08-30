@@ -1,41 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ page import="java.sql.*"%>
-<script language="javascript">
-	// 자바 스크립트 시작
-
-	function replyCheck() {
-		var form = document.replyform;
-
-		if (!form.name.value) // form 에 있는 name 값이 없을 때
-		{
-			alert("이름을 적어주세요"); // 경고창 띄움
-			form.name.focus(); // form 에 있는 name 위치로 이동
-			return;
-		}
-
-		if (!form.password.value) {
-			alert("비밀번호를 적어주세요");
-			form.password.focus();
-			return;
-		}
-
-		if (!form.title.value) {
-			alert("제목을 적어주세요");
-			form.title.focus();
-			return;
-		}
-
-		if (!form.memo.value) {
-			alert("내용을 적어주세요");
-			form.memo.focus();
-			return;
-		}
-
-		form.submit();
-	}
-</script>
-
 <%
 	int idx = Integer.parseInt(request.getParameter("idx"));
 	Class.forName("com.mysql.jdbc.Driver");
@@ -68,12 +33,13 @@
 <html>
 <head>
 <title>게시판</title>
-<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" />
 </head>
 <body>
-	<table>
-		<form name=replyform method=post
-			action="Board_Reply_Action.jsp?idx=<%=idx%>">
+	<%@include file="../include/main_include.jsp"%>
+	<form name=replyform method=post
+		action="Board_Reply_Action.jsp?idx=<%=idx%>">
+		<table>
 			<tr>
 				<td>
 					<table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -137,7 +103,42 @@
 					</table>
 				</td>
 			</tr>
-	</table>
-</body>
+		</table>
+	</form>
+	<%@include file="../include/bottom.jsp"%>
+	<script language="javascript">
+		// 자바 스크립트 시작
 
+		function replyCheck() {
+			var form = document.replyform;
+
+			if (!form.name.value) // form 에 있는 name 값이 없을 때
+			{
+				alert("이름을 적어주세요"); // 경고창 띄움
+				form.name.focus(); // form 에 있는 name 위치로 이동
+				return;
+			}
+
+			if (!form.password.value) {
+				alert("비밀번호를 적어주세요");
+				form.password.focus();
+				return;
+			}
+
+			if (!form.title.value) {
+				alert("제목을 적어주세요");
+				form.title.focus();
+				return;
+			}
+
+			if (!form.memo.value) {
+				alert("내용을 적어주세요");
+				form.memo.focus();
+				return;
+			}
+
+			form.submit();
+		}
+	</script>
+</body>
 </html>
