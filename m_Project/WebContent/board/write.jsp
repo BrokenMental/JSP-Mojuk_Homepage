@@ -8,6 +8,10 @@
 </head>
 <body>
 	<%@include file="../include/main_include.jsp"%>
+	<!-- 이미지 -->
+	<div id="list_img">
+		<img src="../img/Board.png" style="width: 1520px;">
+	</div>
 	<center>
 		<table>
 			<form name=writeform method=post action="write_ok.jsp">

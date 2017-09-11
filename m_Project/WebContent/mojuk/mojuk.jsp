@@ -8,55 +8,61 @@
 <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" />
 </head>
 <body>
-	<%@include file="../include/main_include.jsp"%>
-	<div id="main_ground">
-		<div id="main">
-			<!-- 메뉴 -->
-			<ul style="text-align: center;">
-				<li class="main_menu"><a href="javascript:;"
-					style="text-decoration: none !important; color: #008000;"
-					onclick="javascript:showtab(0);"><h4>
-							<span style="color: #008000;">모죽 소개</span>
-						</h4></a></li>
-				<li class="main_menu"><a href="javascript:;"
-					style="text-decoration: none !important; color: #008000;"
-					onclick="javascript:showtab(1);"><h4>
-							<span style="color: #008000;">모죽 명부</span>
-						</h4></a></li>
-			</ul>
-
-			<div id="tab0" class="tab">
-				<div class="bar" style="float: left; height: 3px;"></div>
-				<div style="float: right;">◈ 모죽 소개</div>
-				<br> <span style="color: #008000;"><h2>모죽 소개</h2></span>
-				<hr>
-				<hr>
-			</div>
-
-			<div id="tab1" class="tab">
-				<div class="bar" style="float: left; height: 3px;"></div>
-				<div style="float: right;">◈ 모죽 2017</div>
-				<br> <span style="color: #008000;"><h2>모죽 친구들</h2></span>
-				<hr>
-				<hr>
-			</div>
+	<center>
+		<%@include file="../include/main_include.jsp"%>
+		<!-- 이미지 -->
+		<div id="list_img">
+			<img src="../img/null_img.png" style="width: 1520px;">
 		</div>
-		<!-- main_end -->
-	</div>
-	<%@include file="../include/bottom.jsp"%>
-	<script>
-		function showtab(a) {
-			for (i = 0; i <= 1; i++) {
+		<div id="main_ground">
+			<div id="main">
+				<!-- 메뉴 -->
+				<ul style="text-align: center;">
+					<li class="main_menu"><a href="javascript:;"
+						style="text-decoration: none !important; color: #008000;"
+						onclick="javascript:showtab(0);"><h4>
+								<span style="color: #008000;">모죽 소개</span>
+							</h4></a></li>
+					<li class="main_menu"><a href="javascript:;"
+						style="text-decoration: none !important; color: #008000;"
+						onclick="javascript:showtab(1);"><h4>
+								<span style="color: #008000;">모죽 명부</span>
+							</h4></a></li>
+				</ul>
 
-				var target = document.getElementById('tab' + i)
+				<div id="tab0" class="tab">
+					<div class="bar" style="float: left; height: 3px;"></div>
+					<div style="float: right;">◈ 모죽 소개</div>
+					<br> <span style="color: #008000;"><h2>모죽 소개</h2></span>
+					<hr>
+					<hr>
+				</div>
 
-				if (i == a) {
-					target.style.display = 'block';
-				} else {
-					target.style.display = 'none';
+				<div id="tab1" class="tab">
+					<div class="bar" style="float: left; height: 3px;"></div>
+					<div style="float: right;">◈ 모죽 2017</div>
+					<br> <span style="color: #008000;"><h2>모죽 친구들</h2></span>
+					<hr>
+					<hr>
+				</div>
+			</div>
+			<!-- main_end -->
+		</div>
+		<%@include file="../include/bottom.jsp"%>
+		<script>
+			function showtab(a) {
+				for (i = 0; i <= 1; i++) {
+
+					var target = document.getElementById('tab' + i)
+
+					if (i == a) {
+						target.style.display = 'block';
+					} else {
+						target.style.display = 'none';
+					}
 				}
 			}
-		}
-	</script>
+		</script>
+	</center>
 </body>
 </html>

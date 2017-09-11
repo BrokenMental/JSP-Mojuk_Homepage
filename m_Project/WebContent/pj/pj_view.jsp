@@ -33,6 +33,10 @@
 </head>
 <body>
 	<%@include file="../include/main_include.jsp"%>
+	<!-- 이미지 -->
+	<div id="list_img">
+		<img src="../img/Board.png" style="width: 1520px;">
+	</div>
 	<center>
 		<table>
 			<tr>
@@ -123,12 +127,14 @@
 						</tr>
 						<tr align="center">
 							<td width="0">&nbsp;</td>
-							<td colspan="2" width="399"><input
-								type=button value="답글" OnClick="window.location='../pj/pj_reply.jsp'">
+							<td colspan="2" width="399"><input type=button value="답글"
+								OnClick="window.location='../pj/pj_reply.jsp?idx=<%=idx%>'">
 								<input type=button value="목록"
-								OnClick="window.location='project.jsp'"> <input type=button
-								value="수정" OnClick="window.location='../pj/pj_modify.jsp'"> <input
-								type=button value="삭제" OnClick="window.location='../pj/pj_delete.jsp'">
+								OnClick="window.location='pj_list.jsp'"> <input
+								type=button value="수정"
+								OnClick="window.location='../pj/pj_modify.jsp?idx=<%=idx%>'">
+								<input type=button value="삭제"
+								OnClick="window.location='../pj/pj_delete.jsp?idx=<%=idx%>'">
 							<td width="0">&nbsp;</td>
 						</tr>
 					</table>

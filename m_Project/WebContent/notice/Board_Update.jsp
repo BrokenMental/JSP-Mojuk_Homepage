@@ -30,6 +30,10 @@ body {
 
 <body>
 	<%@include file="../include/main_include.jsp"%>
+	<!-- 이미지 -->
+	<div id="list_img">
+		<img src="../img/Board.png" style="width: 1520px;">
+	</div>
 	<form name="BoardUpdateForm" method="post"
 		action="Board_Write_action.jsp" onsubmit="return boardUpdateCheck();">
 		<table summary="글수정 전체 테이블">

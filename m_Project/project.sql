@@ -10,4 +10,4 @@ ref int,
 indent int, 
 step int,
 step2 int,
-PRIMARY KEY(id);
+PRIMARY KEY(id));

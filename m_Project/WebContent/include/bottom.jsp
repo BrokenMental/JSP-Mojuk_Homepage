@@ -8,7 +8,7 @@
 <body>
 	<center>
 		<div id="footer">
-			<img src="../img/bottom.png">
+			<img src="../img/bottom.png" style="width: 1520px;">
 		</div>
 	</center>
 </body>

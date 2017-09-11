@@ -9,6 +9,10 @@
 </head>
 <body>
 	<%@include file="../include/main_include.jsp"%>
+	<!-- 이미지 -->
+	<div id="list_img">
+		<img src="../img/Board.png" style="width: 1520px;">
+	</div>
 	<table align="center">
 		<tr>
 			<td>
@@ -62,7 +66,7 @@
 							<td>&nbsp;</td>
 							<td align="center">첨부파일</td>
 							<td><input type="file" name="filename" size="50"
-								maxlength="50" disabled="disabled"></td>
+								maxlength="50"></td>
 							<td>&nbsp;</td>
 						</tr>
 						<tr height="1" bgcolor="#dddddd">

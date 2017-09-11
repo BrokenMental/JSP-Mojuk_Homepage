@@ -5,6 +5,7 @@ body {
 	padding: 0px;
 	margin: 0px;
 	font-family: '고딕', 'Gothic', sans-serif;
+	overflow:hidden;
 }
 
 #container {
@@ -28,10 +29,10 @@ body {
 	padding-top: 10px;
 }
 
-#footer {
+/* #footer {
 	background-color: #bdbdbd;
 	height: 100px;
-}
+} */
 
 #go_page {
 	float: left;
@@ -53,7 +54,7 @@ body {
 
 .bar {
 	background: linear-gradient(-500deg, #0072a8, #00ce00) fixed;
-	width: 100%;
+	max-width: 1520px;
 	height: 13px;
 }
 

@@ -73,6 +73,10 @@
 </head>
 <body>
 	<%@include file="../include/main_include.jsp"%>
+	<!-- 이미지 -->
+	<div id="list_img">
+		<img src="../img/Board.png" style="width: 1520px;">
+	</div>
 	<form name=replyform method=post action="pj_reply_ok.jsp?idx=<%=idx%>">
 		<table>
 			<tr>
