@@ -2,24 +2,23 @@
 	pageEncoding="utf-8"%>
 <%@ page import="java.sql.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <%
+	request.setCharacterEncoding("UTF-8");
 	Class.forName("com.mysql.jdbc.Driver");
 	String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
 	String id = "root";
 	String pass = "1234";
 	String password = "";
 
+	Connection conn = DriverManager.getConnection(url, id, pass);
+	Statement stmt = conn.createStatement();
+
 	try {
 
-		request.setCharacterEncoding("utf-8");
 		int idx = Integer.parseInt(request.getParameter("idx"));
 		String title = request.getParameter("title");
 		String memo = request.getParameter("memo");
 		String passw = request.getParameter("password");
-
-		Connection conn = DriverManager.getConnection(url, id, pass);
-		Statement stmt = conn.createStatement();
 
 		String sql = "SELECT PASSWORD FROM notice WHERE ID=" + idx;
 		ResultSet rs = stmt.executeQuery(sql);

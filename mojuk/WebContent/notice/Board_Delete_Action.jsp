@@ -1,14 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ page import="java.sql.*"%>
-
 <%
 	request.setCharacterEncoding("utf-8");
 	Class.forName("com.mysql.jdbc.Driver");
 	String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
 	String id = "root";
 	String pass = "1234";
-
 	String password = null;
 	int idx = Integer.parseInt(request.getParameter("idx"));
 	String passw = request.getParameter("password");

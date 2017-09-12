@@ -100,7 +100,7 @@
 							<td width="399" colspan="2" height="200"><%=memo%>
 						</tr>
 						<%
-							sql = "UPDATE notice SET HIT=" + hit + " where NUM=" + idx;
+							sql = "UPDATE board SET HIT=" + hit + " where ID=" + idx;
 									stmt.executeUpdate(sql);
 									rs.close();
 									stmt.close();
@@ -117,23 +117,23 @@
 						</tr>
 						<tr align="center">
 							<td width="0">&nbsp;</td>
-							<td colspan="2" width="399"><input
-								type=button value="답글"
-								OnClick="window.location='../notice/Board_Reply.jsp?idx=<%=idx%>'">
+							<td colspan="2" width="399"><input type=button value="답글"
+								OnClick="window.location='Board_Reply.jsp?idx=<%=idx%>'">
 								<input type=button value="목록"
-								OnClick="window.location='notice.jsp'"> <input
+								OnClick="window.location='Board_List.jsp'"> <input
 								type=button value="수정"
-								OnClick="window.location='../notice/Board_Modify.jsp?idx=<%=idx%>'">
+								OnClick="window.location='Board_Modify.jsp?idx=<%=idx%>'">
 								<input type=button value="삭제"
-								OnClick="window.location='../notice/Board_Delete.jsp?idx=<%=idx%>'">
-							<td width="0">&nbsp;</td>
+								OnClick="window.location='Board_Delete.jsp?idx=<%=idx%>'">
+
+								<td width="0">&nbsp;</td>
 						</tr>
 					</table>
 				</td>
 			</tr>
 		</table>
 	</center>
-	<%@include file="../include/bottom.jsp"%>
-</body>
+<%@include file="../include/bottom.jsp"%></
+							body>
 </html>
 

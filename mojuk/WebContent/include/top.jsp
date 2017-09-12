@@ -10,23 +10,26 @@
 		</select> <input type="button" value="이동" onclick="goto_relativepage()"
 			title="새창">
 	</div>
-	<div id="login" style="">
-		<input type="text" name="id" value="아이디" size="8"> <input
-			type="password" name="pass" value="비밀번호" size="8"> <input
-			type="submit" value="로그인">
+	<div>
+		<input type="button" value="로그인" onclick="window.location.href='../login/login.jsp';">
 	</div>
 </div>
 <script type="text/javascript">
 	function goto_relativepage() { //관련사이트 바로가기
-		var select = document.getElementById("relative_page");
-		var select_val = select.options[select.selectedIndex].value;
-
-		if (select_val == '인하공업전문대학교') {
+		var select = document.getElementById("
+			relative_page");
+		var
+			select_val=select.options[select.selectedIndex].value;
+			if (select_val==
+			'인하공업전문대학교') {
 			window.open('http://cms.itc.ac.kr/site/inhatc/main.do');
-		} else if (select_val == '컴퓨터정보과') {
+		} else
+			if (select_val==
+			'컴퓨터정보과') {
 			window.open('http://cms.itc.ac.kr/site/cs/main.do');
 		} else {
-			alert("사이트를 선택하세요.");
+			alert("사이트를
+			선택하세요.");
 			window.location.reload();
 		}
 	}
