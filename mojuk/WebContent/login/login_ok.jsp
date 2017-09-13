@@ -16,14 +16,15 @@
 		String pw = "";
 
 		String[] list = Login.getLogin();
-		for (String log : list) {
-			if (list[0].equals(idc)) {
-				id = list[0];
-				pw = list[1];
+		for (int i = 0; i<list.length; i+=2) {
+			if (list[i].equals(idc)) {
+				id = list[i];
+				pw = list[i+1];
+				break;
 			}
 		}
 		if (idc.equals(id) && pwc.equals(pw)) {
-			session.setAttribute("id", idc);
+			session.setAttribute("idd", id);
 			out.println("<script>");
 			out.println("alert('로그인에 성공하셨습니다');");
 			out.println("location.href='../main.jsp'");
@@ -31,7 +32,7 @@
 		} else {
 			out.println("<script>");
 			out.println("alert('아이디 혹은 비밀번호를 확인하세요');");
-			out.println("window.location.href='history.back()';");
+			out.println("window.history.back()");
 			out.println("</script>");
 		}
 	%>

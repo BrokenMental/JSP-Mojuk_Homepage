@@ -3,8 +3,6 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="java.sql.*,java.text.SimpleDateFormat,java.util.Date"%>
-
-
 <%
 	final int ROWSIZE = 10;
 	final int BLOCK = 5;
@@ -86,15 +84,15 @@
 			<td width="5"></td>
 		</tr>
 		<tr
-			style="background: url('img/table_mid.gif') repeat-x; text-align: center;">
-			<td width="5"><img src="img/table_left.gif" width="5"
+			style="background: url('../img/table_mid.gif') repeat-x; text-align: center;">
+			<td width="5"><img src="../img/table_left.gif" width="5"
 				height="30" /></td>
 			<td width="73">번호</td>
 			<td width="379">제목</td>
 			<td width="73">작성자</td>
 			<td width="163">작성일</td>
 			<td width="58">조회수</td>
-			<td width="7"><img src="img/table_right.gif" width="5"
+			<td width="7"><img src="../img/table_right.gif" width="5"
 				height="30" /></td>
 		</tr>
 		<%

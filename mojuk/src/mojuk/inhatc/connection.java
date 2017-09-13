@@ -19,7 +19,7 @@ public class connection {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 
-	void user() {
+	public connection() {
 		try {
 			Class.forName(driver);
 		} catch (Exception e) {
@@ -30,7 +30,6 @@ public class connection {
 	// db 연결
 	void connect() {
 		try {
-
 			con = DriverManager.getConnection(url, dbid, dbpw);
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -57,6 +56,7 @@ public class connection {
 
 	// Login 정보 확인
 	public String[] getLogin() {
+		int i = 0;
 		connect();
 		String[] array = new String[2];
 		String sql = "select * from user";
@@ -65,11 +65,11 @@ public class connection {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				array[0] = rs.getString("id");
-				array[1] = rs.getString("pw");
+				array[i] = rs.getString("id");
+				array[i+1] = rs.getString("pw");
+				i=i+2;
 			}
 			rs.close();
-			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {

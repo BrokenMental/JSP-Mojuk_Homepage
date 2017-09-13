@@ -1,35 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="EUC-KR"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div id="header">
 	<div id="go_page">
 		<select name="relative_hpg" id="relative_page">
-			<option value="">°ü·ÃÈ¨ÆäÀÌÁö¼±ÅÃ</option>
-			<option value="ÀÎÇÏ°ø¾÷Àü¹®´ëÇĞ±³">ÀÎÇÏ°ø¾÷Àü¹®´ëÇĞ±³</option>
-			<option value="ÄÄÇ»ÅÍÁ¤º¸°ú">ÄÄÇ»ÅÍÁ¤º¸°ú</option>
-		</select> <input type="button" value="ÀÌµ¿" onclick="goto_relativepage()"
-			title="»õÃ¢">
+			<option value="">ê´€ë ¨í™ˆí˜ì´ì§€ì„ íƒ</option>
+			<option value="ì¸í•˜ê³µì—…ì „ë¬¸ëŒ€í•™êµ">ì¸í•˜ê³µì—…ì „ë¬¸ëŒ€í•™êµ</option>
+			<option value="ì»´í“¨í„°ì •ë³´ê³¼">ì»´í“¨í„°ì •ë³´ê³¼</option>
+		</select> <input type="button" value="ì´ë™" onclick="goto_relativepage()"
+			title="ìƒˆì°½">
 	</div>
+	<%
+		request.setCharacterEncoding("UTF-8");
+		String temp = (String) session.getAttribute("idd");
+		String idc = null;
+		if (temp != null) {
+			idc = temp;
+	%>
 	<div>
-		<input type="button" value="·Î±×ÀÎ" onclick="window.location.href='../login/login.jsp';">
+		<form action="../login/logout.jsp"><%=idc%>ë‹˜ <input
+				type="submit" value="ë¡œê·¸ì•„ì›ƒ">
+		</form>
 	</div>
+	<%
+		} else {
+	%>
+	<div>
+		<input type="button" value="ë¡œê·¸ì¸"
+			onclick="window.location.href='../login/login.jsp';">
+	</div>
+	<%
+		}
+	%>
 </div>
 <script type="text/javascript">
-	function goto_relativepage() { //°ü·Ã»çÀÌÆ® ¹Ù·Î°¡±â
+	function goto_relativepage() { //ê´€ë ¨ì‚¬ì´íŠ¸ ë°”ë¡œê°€ê¸°
 		var select = document.getElementById("
 			relative_page");
 		var
 			select_val=select.options[select.selectedIndex].value;
 			if (select_val==
-			'ÀÎÇÏ°ø¾÷Àü¹®´ëÇĞ±³') {
+			'ì¸í•˜ê³µì—…ì „ë¬¸ëŒ€í•™êµ') {
 			window.open('http://cms.itc.ac.kr/site/inhatc/main.do');
 		} else
 			if (select_val==
-			'ÄÄÇ»ÅÍÁ¤º¸°ú') {
+			'ì»´í“¨í„°ì •ë³´ê³¼') {
 			window.open('http://cms.itc.ac.kr/site/cs/main.do');
 		} else {
-			alert("»çÀÌÆ®¸¦
-			¼±ÅÃÇÏ¼¼¿ä.");
+			alert("ì‚¬ì´íŠ¸ë¥¼
+			ì„ íƒí•˜ì„¸ìš”.");
 			window.location.reload();
 		}
 	}
