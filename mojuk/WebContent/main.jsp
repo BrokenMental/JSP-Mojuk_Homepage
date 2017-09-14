@@ -6,7 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>홈페이지 메인</title>
 <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
-<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="stylesheet" type="text/css" href="include/css/main.css" />
+<link rel="stylesheet" type="text/css"
+	href="include/css/flickity.css" />
 </head>
 <body>
 	<center>
@@ -76,17 +78,36 @@
 					</div>
 				</div>
 				<!-- 메인 이미지 -->
-				<div id="main_img">
-					<img src="img/Main_img.png" style="width: 1520px;">
+				<hr>
+				<!-- Flickity HTML init -->
+				<div class="carousel" data-flickity='{ "autoPlay": true }'
+					style="background: #F6F5F5;">
+					<div class="carousel-cell">
+						<img src="img/test/slide1.jpg" height="300px;">
+					</div>
+					<div class="carousel-cell">
+						<img src="img/test/slide2.jpg" height="300px;">
+					</div>
+					<div class="carousel-cell">
+						<img src="img/Main_img.png" height="300px;">
+					</div>
+					<div class="carousel-cell">
+						<img src="img/test/slide3.jpg" height="300px;">
+					</div>
+					<div class="carousel-cell">
+						<img src="img/test/slide4.jpg" height="300px;">
+					</div>
 				</div>
 				<!-- 하단 -->
 				<div id="footer">
-					<img src="img/bottom.png" style="width: 1520px;">
+					<img src="img/bottom.png" style="width: 1520px; margin-top: 30px;">
 				</div>
 				<!-- main ground_end -->
 			</div>
 			<!-- container_end -->
 		</div>
 	</center>
+	<script type="text/javascript"
+		src="include/js/flickity.pkgd.js"></script>
 </body>
 </html>
