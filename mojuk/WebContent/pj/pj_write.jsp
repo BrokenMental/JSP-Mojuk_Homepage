@@ -32,7 +32,7 @@
 						<tr>
 							<td>&nbsp;</td>
 							<td align="center">제목</td>
-							<td><input name="title" size="50" maxlength="100"></td>
+							<td>&nbsp;<input name="title" size="50" maxlength="100"></td>
 							<td>&nbsp;</td>
 						</tr>
 						<tr height="1" bgcolor="#dddddd">
@@ -41,17 +41,11 @@
 						<tr>
 							<td>&nbsp;</td>
 							<td align="center">이름</td>
-							<td><input name="name" size="50" maxlength="50"></td>
+							<td><input name="name" size="50" maxlength="50" value="&nbsp;<%=session.getAttribute("idd")%>" readonly style="border:0px;"></td>
 							<td>&nbsp;</td>
 						</tr>
 						<tr height="1" bgcolor="#dddddd">
 							<td colspan="4"></td>
-						</tr>
-						<tr>
-							<td>&nbsp;</td>
-							<td align="center">비밀번호</td>
-							<td><input name="password" size="50" maxlength="50"></td>
-							<td>&nbsp;</td>
 						</tr>
 						<tr height="1" bgcolor="#dddddd">
 							<td colspan="4"></td>
@@ -59,7 +53,7 @@
 						<tr>
 							<td>&nbsp;</td>
 							<td align="center">내용</td>
-							<td><textarea name="memo" cols="50" rows="13"></textarea></td>
+							<td>&nbsp;<textarea name="memo" cols="50" rows="13"></textarea></td>
 							<td>&nbsp;</td>
 						</tr>
 						<tr>
@@ -96,12 +90,6 @@
 			{
 				alert("이름을 적어주세요"); // 경고창 띄움
 				form.name.focus(); // form 에 있는 name 위치로 이동
-				return;
-			}
-
-			if (!form.password.value) {
-				alert("비밀번호를 적어주세요");
-				form.password.focus();
 				return;
 			}
 

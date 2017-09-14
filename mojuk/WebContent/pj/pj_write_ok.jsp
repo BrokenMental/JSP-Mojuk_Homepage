@@ -27,7 +27,6 @@ com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 	String id = "root";
 	String pass = "1234";
 	String name = multi.getParameter("name");
-	String password = multi.getParameter("password");
 	String title = multi.getParameter("title");
 	String memo = multi.getParameter("memo");
 
@@ -44,14 +43,13 @@ com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 			max = rs.getInt(1);
 		}
 
-		sql = "INSERT INTO project(USERNAME,PASSWORD,TITLE,MEMO,REF) VALUES(?,?,?,?,?)";
+		sql = "INSERT INTO project(USERNAME,TITLE,MEMO,REF) VALUES(?,?,?,?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 
 		pstmt.setString(1, name);
-		pstmt.setString(2, password);
-		pstmt.setString(3, title);
-		pstmt.setString(4, memo);
-		pstmt.setInt(5, max + 1);
+		pstmt.setString(2, title);
+		pstmt.setString(3, memo);
+		pstmt.setInt(4, max + 1);
 
 		pstmt.execute();
 		pstmt.close();

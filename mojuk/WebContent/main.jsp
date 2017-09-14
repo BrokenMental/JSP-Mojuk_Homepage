@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>홈페이지 메인</title>
+<title>모죽 메인</title>
 <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
 <link rel="stylesheet" type="text/css" href="include/css/main.css" />
 <link rel="stylesheet" type="text/css"

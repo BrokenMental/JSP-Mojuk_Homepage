@@ -189,8 +189,14 @@
 				</td>
 			</tr>
 			<tr align="center">
+				<%
+					if (session.getAttribute("idd").equals("root")) {
+				%>
 				<td><input type=button value="글쓰기"
 					OnClick="window.location='pj_write.jsp'"></td>
+				<%
+					}
+				%>
 			</tr>
 		</table>
 		<%@include file="../include/bottom.jsp"%>

@@ -4,7 +4,6 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	String name = request.getParameter("name");
-	String password = request.getParameter("password");
 	String title = request.getParameter("title");
 	String memo = request.getParameter("memo");
 	String hit = request.getParameter("hit");
@@ -26,14 +25,13 @@
 			max = rs.getInt(1);
 		}
 
-		sql = "INSERT INTO board (USERNAME,PASSWORD,TITLE,MEMO,HIT) VALUES(?,?,?,?,?)";
+		sql = "INSERT INTO board (USERNAME,TITLE,MEMO,HIT) VALUES(?,?,?,?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 
 		pstmt.setString(1, name);
-		pstmt.setString(2, password);
-		pstmt.setString(3, title);
-		pstmt.setString(4, memo);
-		pstmt.setString(5, hit);
+		pstmt.setString(2, title);
+		pstmt.setString(3, memo);
+		pstmt.setString(4, hit);
 
 		pstmt.execute();
 		pstmt.close();

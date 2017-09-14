@@ -60,7 +60,7 @@ public class connection {
 	public List getLogin() {
 		connect();
 		List array = new ArrayList();
-		String sql = "select * from user";
+		String sql = "select id, aes_decrypt(unhex(pw), 'pw') as pw from user";
 		try {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();

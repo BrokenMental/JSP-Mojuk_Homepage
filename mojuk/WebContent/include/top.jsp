@@ -17,8 +17,9 @@
 		if (temp != null) {
 			idc = temp;
 	%>
+	<!-- 톰캣 경로 설정과 맞지 않으므로 최상위인 mojuk을 넣어준다 -->
 	<div id="login_form">
-		<form action="../login/logout.jsp"><%=idc%>님 <input
+		<form action="/mojuk/login/logout.jsp"><%=idc%>님 <input
 				type="submit" value="로그아웃">
 		</form>
 	</div>
@@ -27,7 +28,7 @@
 	%>
 	<div>
 		<input type="button" value="로그인"
-			onclick="window.location.href='../login/login.jsp';">
+			onclick="window.location.href='/mojuk/login/login.jsp';">
 	</div>
 	<%
 		}

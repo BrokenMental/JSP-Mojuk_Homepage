@@ -18,7 +18,6 @@
 		ArrayList list = (ArrayList)Login.getLogin();
 		for (int i = 0; i<list.size(); i=i+2) {
 			if (list.get(i).equals(idc)) {
-				System.out.println("들어옴");
 				id = (String)list.get(i);
 				pw = (String)list.get(i+1);
 				break;

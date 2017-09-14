@@ -3,7 +3,7 @@
 <%@ page import="java.sql.*,java.text.SimpleDateFormat,java.util.Date"%>
 
 <%
-	final int ROWSIZE = 8;
+	final int ROWSIZE = 10;
 	final int BLOCK = 5;
 
 	int pg = 1;
@@ -189,8 +189,12 @@
 				</td>
 			</tr>
 			<tr align="center">
+				<%
+					if (null != session.getAttribute("idd")) {
+				%>
 				<td><input type=button value="글쓰기"
 					OnClick="window.location='write.jsp'"></td>
+					<%} %>
 			</tr>
 		</table>
 		<%@include file="../include/bottom.jsp"%>
