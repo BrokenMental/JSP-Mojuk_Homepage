@@ -36,20 +36,16 @@
 </div>
 <script type="text/javascript">
 	function goto_relativepage() { //관련사이트 바로가기
-		var select = document.getElementById("
-			relative_page");
+		var select = document.getElementById("relative_page");
 		var
 			select_val=select.options[select.selectedIndex].value;
-			if (select_val==
-			'인하공업전문대학교') {
+			if (select_val=='인하공업전문대학교') {
 			window.open('http://cms.itc.ac.kr/site/inhatc/main.do');
 		} else
-			if (select_val==
-			'컴퓨터정보과') {
+			if (select_val=='컴퓨터정보과') {
 			window.open('http://cms.itc.ac.kr/site/cs/main.do');
 		} else {
-			alert("사이트를
-			선택하세요.");
+			alert("사이트를 선택하세요.");
 			window.location.reload();
 		}
 	}

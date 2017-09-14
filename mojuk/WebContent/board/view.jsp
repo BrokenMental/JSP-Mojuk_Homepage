@@ -101,16 +101,6 @@
 							<td width="0"></td>
 							<td width="399" colspan="2" height="200"><%=memo%>
 						</tr>
-						<%
-							sql = "UPDATE board SET HIT=" + hit + " where NUM=" + idx;
-									stmt.executeUpdate(sql);
-									rs.close();
-									stmt.close();
-									conn.close();
-								}
-							} catch (SQLException e) {
-							}
-						%>
 						<tr height="1" bgcolor="#dddddd">
 							<td colspan="4" width="407"></td>
 						</tr>
@@ -119,14 +109,19 @@
 						</tr>
 						<tr align="center">
 							<td width="0">&nbsp;</td>
-							<td colspan="2" width="399"><input type=button value="답글"
-								OnClick="window.location='reply.jsp?idx=<%=idx%>'">
-								<input type=button value="목록"
-								OnClick="window.location='list.jsp'"> <input
-								type=button value="수정"
-								OnClick="window.location='modify.jsp?idx=<%=idx%>'">
-								<input type=button value="삭제"
-								OnClick="window.location='delete.jsp?idx=<%=idx%>'">
+							<td colspan="2" width="399"><%
+									if (session.getAttribute("idd") != null) {
+								%><input type=button value="답글"
+								OnClick="window.location='reply.jsp?idx=<%=idx%>'"> <input
+								type=button value="목록" OnClick="window.location='list.jsp'">
+								<%}
+									if (name.equals(session.getAttribute("idd")) || session.getAttribute("idd").equals("root")) {
+								%><input type=button value="수정"
+								OnClick="window.location='modify.jsp?idx=<%=idx%>'"> <input
+								type=button value="삭제"
+								OnClick="window.location='delete.jsp?idx=<%=idx%>'"> <%
+ 	}
+ %>
 							<td width="0">&nbsp;</td>
 						</tr>
 					</table>
@@ -134,6 +129,16 @@
 			</tr>
 		</table>
 	</center>
+	<%
+		sql = "UPDATE board SET HIT=" + hit + " where NUM=" + idx;
+				stmt.executeUpdate(sql);
+				rs.close();
+				stmt.close();
+				conn.close();
+			}
+		} catch (SQLException e) {
+		}
+	%>
 	<%@include file="../include/bottom.jsp"%>
 </body>
 </html>

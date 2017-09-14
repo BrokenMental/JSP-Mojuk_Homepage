@@ -1,7 +1,6 @@
 <%@ page import="java.sql.DriverManager"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*"%>
 <%@ page import="java.sql.*,java.text.SimpleDateFormat,java.util.Date"%>
 <%
 	final int ROWSIZE = 10;
@@ -130,11 +129,11 @@
 					%> &nbsp;&nbsp;&nbsp;<%
  	}
  				if (indent != 0) {
- %> <img src='img/reply_icon.gif' /> <%
+ %> <img src='../img/reply_icon.gif' /> <%
  	}
  %> <a href="Board_View.jsp?idx=<%=idx%>"><%=title%></a> <%
  	if (year.equals(yea)) {
- %> <img src='img/new.jpg' /> <%
+ %> <img src='../img/new.jpg' /> <%
  	}
  %>
 				</td>
@@ -191,7 +190,11 @@
 			</tr>
 			<tr align="center">
 				<%
-					if (session.getAttribute("idd").equals("root")) {
+					if (session.getAttribute("idd") == null) {
+				%>
+				<td></td>
+				<%
+					} else if (session.getAttribute("idd").equals("root")) {
 				%>
 				<td><input type=button value="글쓰기"
 					OnClick="window.location='Board_Write.jsp'"></td>

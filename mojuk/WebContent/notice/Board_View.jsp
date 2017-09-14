@@ -99,16 +99,6 @@
 							<td width="0"></td>
 							<td width="399" colspan="2" height="200"><%=memo%>
 						</tr>
-						<%
-							sql = "UPDATE board SET HIT=" + hit + " where ID=" + idx;
-									stmt.executeUpdate(sql);
-									rs.close();
-									stmt.close();
-									conn.close();
-								}
-							} catch (SQLException e) {
-							}
-						%>
 						<tr height="1" bgcolor="#dddddd">
 							<td colspan="4" width="407"></td>
 						</tr>
@@ -117,23 +107,35 @@
 						</tr>
 						<tr align="center">
 							<td width="0">&nbsp;</td>
-							<td colspan="2" width="399"><input type=button value="답글"
-								OnClick="window.location='Board_Reply.jsp?idx=<%=idx%>'">
+							<td colspan="2" width="399">
 								<input type=button value="목록"
-								OnClick="window.location='Board_List.jsp'"> <input
-								type=button value="수정"
+								OnClick="window.location='Board_List.jsp'"> <%
+ 	if (name.equals(session.getAttribute("idd"))) {
+ %><input type=button value="수정"
 								OnClick="window.location='Board_Modify.jsp?idx=<%=idx%>'">
 								<input type=button value="삭제"
 								OnClick="window.location='Board_Delete.jsp?idx=<%=idx%>'">
-
-								<td width="0">&nbsp;</td>
+								<%
+									}
+								%>
+							<td width="0">&nbsp;</td>
 						</tr>
 					</table>
 				</td>
 			</tr>
 		</table>
 	</center>
-<%@include file="../include/bottom.jsp"%></
-							body>
+	<%
+		sql = "UPDATE board SET HIT=" + hit + " where ID=" + idx;
+				stmt.executeUpdate(sql);
+				rs.close();
+				stmt.close();
+				conn.close();
+			}
+		} catch (SQLException e) {
+		}
+	%>
+	<%@include file="../include/bottom.jsp"%></
+	body>
 </html>
 
