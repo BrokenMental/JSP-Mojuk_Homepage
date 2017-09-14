@@ -17,7 +17,7 @@
 		if (temp != null) {
 			idc = temp;
 	%>
-	<div>
+	<div id="login_form">
 		<form action="../login/logout.jsp"><%=idc%>님 <input
 				type="submit" value="로그아웃">
 		</form>

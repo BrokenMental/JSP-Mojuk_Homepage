@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class connection {
 
@@ -55,19 +57,17 @@ public class connection {
 	}
 
 	// Login 정보 확인
-	public String[] getLogin() {
-		int i = 0;
+	public List getLogin() {
 		connect();
-		String[] array = new String[2];
+		List array = new ArrayList();
 		String sql = "select * from user";
 		try {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				array[i] = rs.getString("id");
-				array[i+1] = rs.getString("pw");
-				i=i+2;
+				array.add(rs.getString("id"));
+				array.add(rs.getString("pw"));
 			}
 			rs.close();
 		}catch(Exception e) {

@@ -43,8 +43,8 @@ body {
 	text-align: left;
 }
 
-#login {
-	float: right;
+#login_form {
+	float: left;
 	/*background-color:#afe0ca;*/
 	width: 500px;
 	height: 40px;

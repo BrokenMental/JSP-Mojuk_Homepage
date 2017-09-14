@@ -5,8 +5,8 @@
 <center>
 	<form name="login" method="post" action=login_ok.jsp>
 		<div>
-			<input type="text" name="id" placeholder="아이디" size="8"> <input
-				type="password" name="pw" placeholder="비밀번호" size="8"> <input
+			<input type="text" name="id" placeholder="아이디" size="10"> <input
+				type="password" name="pw" placeholder="비밀번호" size="10"> <input
 				type="submit" value="로그인" Onclick="javascript:writeCheck();">
 		</div>
 	</form>

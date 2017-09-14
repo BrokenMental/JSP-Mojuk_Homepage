@@ -35,6 +35,11 @@
 		<div id="list_img">
 			<img src="../img/Board.png" style="width: 1520px;">
 		</div>
+		<!-- Devlop by SeYeon Jeon -->
+		<!-- Devlop by SeYeon Jeon -->
+		<!-- Devlop by SeYeon Jeon -->
+		<!-- Devlop by SeYeon Jeon -->
+		<!-- Devlop by SeYeon Jeon -->
 		<%
 		String Url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
 		String id = "root";
