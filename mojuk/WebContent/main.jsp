@@ -83,19 +83,31 @@
 				<div class="carousel" data-flickity='{ "autoPlay": true }'
 					style="background: #F6F5F5;">
 					<div class="carousel-cell">
-						<img src="img/test/slide1.jpg" height="300px;">
+						<img src="img/group/mt/mt00.jpg" height="300px;">
 					</div>
 					<div class="carousel-cell">
-						<img src="img/test/slide2.jpg" height="300px;">
+						<img src="img/group/mt/mt01.jpg" height="300px;">
+					</div>
+					<div class="carousel-cell">
+						<img src="img/group/mt/mt02.jpg" height="300px;">
+					</div>
+					<div class="carousel-cell">
+						<img src="img/group/mt/mt03.jpg" height="300px;">
 					</div>
 					<div class="carousel-cell">
 						<img src="img/Main_img.png" height="300px;">
 					</div>
 					<div class="carousel-cell">
-						<img src="img/test/slide3.jpg" height="300px;">
+						<img src="img/group/mt/mt04.jpg" height="300px;">
 					</div>
 					<div class="carousel-cell">
-						<img src="img/test/slide4.jpg" height="300px;">
+						<img src="img/group/mt/mt05.jpg" height="300px;">
+					</div>
+					<div class="carousel-cell">
+						<img src="img/group/mt/mt06.jpg" height="300px;">
+					</div>
+					<div class="carousel-cell">
+						<img src="img/group/mt/mt07.jpg" height="300px;">
 					</div>
 				</div>
 				<!-- 하단 -->

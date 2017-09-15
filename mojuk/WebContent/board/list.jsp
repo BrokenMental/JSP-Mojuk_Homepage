@@ -60,7 +60,7 @@
 				}
 
 				int sort = 1;
-				String sqlSort = "SELECT NUM from board order by ref desc, step asc";
+				String sqlSort = "SELECT NUM from board order by NUM desc";
 				rs = stmt.executeQuery(sqlSort);
 
 				while (rs.next()) {
@@ -75,11 +75,8 @@
 				if (endPage > allPage) {
 					endPage = allPage;
 				}
-
-				out.print("총 게시물 : " + total + "개");
-
 				String sqlList = "SELECT NUM, USERNAME, TITLE, TIME, HIT, INDENT from board where STEP2 >=" + start
-						+ " and STEP2 <= " + end + " order by step2 desc";
+						+ " and STEP2 <= " + end + " order by step2 asc";
 				rs = stmt.executeQuery(sqlList);
 		%>
 		<table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -194,7 +191,9 @@
 				%>
 				<td><input type=button value="글쓰기"
 					OnClick="window.location='write.jsp'"></td>
-					<%} %>
+				<%
+					}
+				%>
 			</tr>
 		</table>
 		<%@include file="../include/bottom.jsp"%>
