@@ -114,7 +114,7 @@
  %><input type=button value="수정"
 								OnClick="window.location='Board_Modify.jsp?idx=<%=idx%>'">
 								<input type=button value="삭제"
-								OnClick="window.location='Board_Delete.jsp?idx=<%=idx%>'">
+								OnClick="window.location='Board_Delete_Action.jsp?idx=<%=idx%>'">
 								<%
 									}
 								%>

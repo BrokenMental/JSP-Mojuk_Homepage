@@ -7,23 +7,22 @@
 	String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
 	String id = "root";
 	String pass = "1234";
-	String password = null;
+	String name = null;
 	int idx = Integer.parseInt(request.getParameter("idx"));
-	String passw = request.getParameter("password");
 
 	try {
 
 		Connection conn = DriverManager.getConnection(url, id, pass);
 		Statement stmt = conn.createStatement();
 
-		String sql = "SELECT password FROM project WHERE id=" + idx;
+		String sql = "SELECT USERNAME FROM project WHERE id=" + idx;
 		ResultSet rs = stmt.executeQuery(sql);
 
 		if (rs.next()) {
-			password = rs.getString(1);
+			name = rs.getString(1);
 		}
 
-		if (password.equals(passw)) {
+		if (name.equals(session.getAttribute("idd"))) {
 
 			sql = "DELETE FROM project WHERE id=" + idx;
 			stmt.executeUpdate(sql);
@@ -38,14 +37,7 @@
 			stmt.close();
 			conn.close();
 
-		} else {
-%>
-<script language=javascript>
-	self.window.alert("비밀번호를 틀렸습니다.");
-	location.href = "javascript:history.back()";
-</script>
-<%
-	}
+		}
 	} catch (SQLException e) {
 		out.println(e.toString());
 	}

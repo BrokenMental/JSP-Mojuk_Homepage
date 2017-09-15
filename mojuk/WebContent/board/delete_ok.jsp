@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 
 <%
@@ -9,29 +9,28 @@
 	String pass = "1234";
 	Class.forName("com.mysql.jdbc.Driver");
 
-	String password = null;
+	String name = null;
 	int idx = Integer.parseInt(request.getParameter("idx"));
-	String passw = request.getParameter("password");
 
 	try {
 
 		Connection conn = DriverManager.getConnection(url, id, pass);
 		Statement stmt = conn.createStatement();
 
-		String sql = "SELECT PASSWORD FROM board WHERE NUM=" + idx;
+		String sql = "SELECT USERNAME FROM board WHERE NUM=" + idx;
 		ResultSet rs = stmt.executeQuery(sql);
 
 		if (rs.next()) {
-			password = rs.getString(1);
+			name = rs.getString(1);
 		}
 
-		if (password.equals(passw)) {
+		if (name.equals(session.getAttribute("idd"))) {
 
 			sql = "DELETE FROM board WHERE NUM=" + idx;
 			stmt.executeUpdate(sql);
 %>
 <script language=javascript>
-	self.window.alert("ÇØ´ç ±ÛÀ» »èÁ¦ÇÏ¿´½À´Ï´Ù.");
+	self.window.alert("í•´ë‹¹ ê¸€ì„ ì‚­ì œí•˜ì˜€ìŠµë‹ˆë‹¤.");
 	location.href = "list.jsp";
 </script>
 
@@ -40,14 +39,7 @@
 			stmt.close();
 			conn.close();
 
-		} else {
-%>
-<script language=javascript>
-	self.window.alert("ºñ¹Ğ¹øÈ£¸¦ Æ²·È½À´Ï´Ù.");
-	location.href = "javascript:history.back()";
-</script>
-<%
-	}
+		}
 	} catch (SQLException e) {
 		out.println(e.toString());
 	}

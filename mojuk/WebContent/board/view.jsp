@@ -109,19 +109,24 @@
 						</tr>
 						<tr align="center">
 							<td width="0">&nbsp;</td>
-							<td colspan="2" width="399"><%
+							<td colspan="2" width="399">
+								<%
 									if (session.getAttribute("idd") != null) {
 								%><input type=button value="답글"
-								OnClick="window.location='reply.jsp?idx=<%=idx%>'"> <input
+								OnClick="window.location='reply.jsp?idx=<%=idx%>'"> <%
+ 	}
+ %><input
 								type=button value="목록" OnClick="window.location='list.jsp'">
-								<%}
-									if (name.equals(session.getAttribute("idd")) || session.getAttribute("idd").equals("root")) {
+								<%
+									if (name.equals(session.getAttribute("idd")) || "root".equals(session.getAttribute("idd"))) {
 								%><input type=button value="수정"
 								OnClick="window.location='modify.jsp?idx=<%=idx%>'"> <input
 								type=button value="삭제"
-								OnClick="window.location='delete.jsp?idx=<%=idx%>'"> <%
- 	}
- %>
+								OnClick="window.location='delete_ok.jsp?idx=<%=idx%>'">
+								<%
+									}
+								%>
+							
 							<td width="0">&nbsp;</td>
 						</tr>
 					</table>

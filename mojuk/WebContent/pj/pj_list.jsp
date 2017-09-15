@@ -23,7 +23,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>프로젝트 게시판</title>
+<title>프로젝트</title>
 <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" />
 </head>
 <body>

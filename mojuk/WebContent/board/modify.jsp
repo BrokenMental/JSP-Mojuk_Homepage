@@ -74,7 +74,7 @@
 							<tr>
 								<td>&nbsp;</td>
 								<td align="center">제목</td>
-								<td><input name="title" size="50" maxlength="100"></td>
+								<td><input name="title" size="50" maxlength="100" value="<%=title%>"></td>
 								<td>&nbsp;</td>
 							</tr>
 							<tr height="1" bgcolor="#dddddd">
@@ -92,18 +92,8 @@
 							</tr>
 							<tr>
 								<td>&nbsp;</td>
-								<td align="center">비밀번호</td>
-								<td><input type="password" name="password" size="50"
-									maxlength="50"></td>
-								<td>&nbsp;</td>
-							</tr>
-							<tr height="1" bgcolor="#dddddd">
-								<td colspan="4"></td>
-							</tr>
-							<tr>
-								<td>&nbsp;</td>
 								<td align="center">내용</td>
-								<td><textarea name="memo" cols="50" rows="13"></textarea></td>
+								<td><textarea name="memo" cols="50" rows="13"><%=memo%></textarea></td>
 								<td>&nbsp;</td>
 							</tr>
 							<tr height="1" bgcolor="#dddddd">

@@ -88,16 +88,6 @@
 							</tr>
 							<tr>
 								<td>&nbsp;</td>
-								<td align="center">비밀번호</td>
-								<td><input type=password name="password" id="pass" size=50
-									maxlength=50></td>
-								<td>&nbsp;</td>
-							</tr>
-							<tr height="1" bgcolor="#dddddd">
-								<td colspan="4"></td>
-							</tr>
-							<tr>
-								<td>&nbsp;</td>
 								<td align="center">내용</td>
 								<td><textarea name=memo cols=50 rows=13><%=memo%></textarea></td>
 								<td>&nbsp;</td>

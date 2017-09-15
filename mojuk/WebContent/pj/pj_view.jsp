@@ -122,9 +122,9 @@
 								 <%
  	if (name.equals(session.getAttribute("idd"))) {
  %><input type=button value="수정"
-								OnClick="window.location='../pj/pj_modify.jsp?idx=<%=idx%>'">
+								OnClick="window.location='pj_modify.jsp?idx=<%=idx%>'">
 								<input type=button value="삭제"
-								OnClick="window.location='../pj/pj_delete.jsp?idx=<%=idx%>'">
+								OnClick="window.location='pj_delete_ok.jsp?idx=<%=idx%>'">
 								<%
 									}
 								%>
