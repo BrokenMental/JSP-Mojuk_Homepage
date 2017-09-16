@@ -14,7 +14,7 @@
 	</div>
 	<center>
 		<form name=writeform method=post
-			action="../notice/Board_Write_Action.jsp">
+			action="Board_Write_Action.jsp">
 			<table>
 				<tr>
 					<td>
