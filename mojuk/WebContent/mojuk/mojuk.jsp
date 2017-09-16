@@ -44,6 +44,7 @@
 					<br> <span style="color: #008000;"><h2>모죽 친구들</h2></span>
 					<hr>
 					<hr>
+					<%@include file="Profile.jsp" %>
 				</div>
 			</div>
 			<!-- main_end -->

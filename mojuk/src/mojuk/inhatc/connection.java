@@ -70,6 +70,7 @@ public class connection {
 				array.add(rs.getString("pw"));
 			}
 			rs.close();
+			pstmt.close();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -78,4 +79,27 @@ public class connection {
 		return array;
 	}
 
+	
+	public List getProfile() {
+		connect();
+		List profile = new ArrayList();
+		String sql = "select * from profile";
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				profile.add(rs.getString(1));
+				profile.add(rs.getString(2));
+				profile.add(rs.getString(3));
+			}
+			rs.close();
+			pstmt.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally{
+			disconnect();
+		}
+		return profile;
+	}
 }
