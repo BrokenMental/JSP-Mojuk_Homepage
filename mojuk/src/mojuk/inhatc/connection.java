@@ -13,7 +13,7 @@ public class connection {
 	String pw = null;
 
 	String driver = "com.mysql.jdbc.Driver";
-	String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
+	String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=UTF-8&amp;useSSL=false&amp;autoReconnection=true";
 	String dbid = "root";
 	String dbpw = "1234";
 	
@@ -90,6 +90,7 @@ public class connection {
 			
 			while(rs.next()) {
 				profile.add(rs.getString(1));
+				System.out.println(rs.getString(1));
 				profile.add(rs.getString(2));
 				profile.add(rs.getString(3));
 			}
@@ -102,4 +103,5 @@ public class connection {
 		}
 		return profile;
 	}
+	
 }
