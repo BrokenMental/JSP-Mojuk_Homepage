@@ -19,33 +19,32 @@
 			<table border="1" height="200px" width="500px"
 				style="border-collapse: collapse; margin: 5px;">
 				<tr>
-					<td rowspan="2" height="100px" width="150px"><img id="blah"
-						src="#" height="170px" style="margin: 0 auto;" /></td>
+					<td height="100px" width="150px"><img id="blah" src="#"
+						height="160px" width="120px" style="margin: 15px;" /></td>
 					<td height="150px"><textarea name="content"
 							placeholder="소개 문구"
 							style="resize: none; height: 150px; width: 350px; border: 0px;"></textarea></td>
 				</tr>
 				<tr>
+					<td><input type="text" name="name"
+						style="height: 15px; width: 150px; border: 0px;"
+						placeholder="이름(직책)"></td>
 					<td><input type="text" name="location"
-						style="height: 20px; width: 350px; border: 0px;"
+						style="height: 15px; width: 350px; border: 0px;"
 						placeholder="개인페이지 링크(없으면 없음 기재)"></td>
 				</tr>
 				<tr>
 					<td colspan="2"><input type="file" id="imgInp" name="img"
-						style="width: 500px;" /></td>
-				</tr>
-				<tr>
-					<td colspan="2" style="width: 500px; border: 0px;"><input
-						type=button value="취소" OnClick="javascript:history.back(-1)"
-						style="float: right;"><input type="submit" value="저장"
-						style="float: right;" OnClick="javascript:writeCheck();"></td>
+						style="width: 400px;" /><input type=button value="취소"
+						OnClick="javascript:history.back(-1)" style="float: right;"><input
+						type="submit" value="저장" style="float: right;"
+						OnClick="javascript:writeCheck();"></td>
 				</tr>
 			</table>
 		</form>
 		<%@include file="../include/bottom.jsp"%>
 	</center>
-	<script type="text/javascript"
-		src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<script type="text/javascript" src="../include/js/jquery-2.1.0.min.js"></script>
 	<script type="text/javascript">
 		$(function() {
 			$("#imgInp").on('change', function() {
@@ -82,6 +81,12 @@
 			if (!form.location.value) {
 				alert("링크를 넣어주세요");
 				form.location.focus();
+				return;
+			}
+
+			if (!form.name.value) {
+				alert("이름을 넣어주세요");
+				form.name.focus();
 				return;
 			}
 

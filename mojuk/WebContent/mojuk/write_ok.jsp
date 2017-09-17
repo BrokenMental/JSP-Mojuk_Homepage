@@ -14,7 +14,8 @@
 		String pass = "1234";
 
 		// String uploadPath = request.getRealPath("upload");
-		String uploadPath = "D:/etc/Development/Git/Mojuk_Homepage/mojuk/WebContent/mojuk/upload";
+		//String uploadPath = "C:/Users/mojuk/git/Mojuk_Homepage/mojuk/WebContent/mojuk/upload";
+		String uploadPath = "C:/apache-tomcat-8.0.46/webapps/mojuk/mojuk/upload";
 
 		int size = 5 * 1024 * 1024;
 
@@ -32,12 +33,13 @@
 			Connection conn = DriverManager.getConnection(url, id, pass);
 			Statement stmt = conn.createStatement();
 
-			String sql = "insert into profile(img,content,location) VALUES(?,?,?)";
+			String sql = "insert into profile(img,content,location,name) VALUES(?,?,?,?)";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 
 			pstmt.setString(1, filename);
 			pstmt.setString(2, multi.getParameter("content"));
 			pstmt.setString(3, multi.getParameter("location"));
+			pstmt.setString(4, multi.getParameter("name"));
 
 			pstmt.execute();
 			pstmt.close();
@@ -52,7 +54,7 @@
 	 --%>
 	<script language=javascript>
 		self.window.alert("입력한 글을 저장하였습니다.");
-		location.href = "Profile.jsp";
+		location.href = "mojuk.jsp";
 	</script>
 </body>
 </html>

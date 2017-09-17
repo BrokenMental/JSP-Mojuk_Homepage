@@ -83,16 +83,16 @@ public class connection {
 	public List getProfile() {
 		connect();
 		List profile = new ArrayList();
-		String sql = "select * from profile";
+		String sql = "select img,name,content,location from profile";
 		try {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
 				profile.add(rs.getString(1));
-				System.out.println(rs.getString(1));
 				profile.add(rs.getString(2));
 				profile.add(rs.getString(3));
+				profile.add(rs.getString(4));
 			}
 			rs.close();
 			pstmt.close();

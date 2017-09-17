@@ -8,41 +8,50 @@
 <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" />
 </head>
 <body>
-	<%@include file="../include/main_include.jsp"%>
+	<%-- <%@include file="../include/main_include.jsp"%>
 	<!-- 이미지 -->
 	<div id="list_img">
 		<img src="../img/null_img.png" style="width: 1520px;">
-	</div>
+	</div> --%>
 	<jsp:useBean id="Profile" class="mojuk.inhatc.connection" scope="page" />
 	<center>
 		<%
 			request.setCharacterEncoding("UTF-8");
-			String img = null, content = null, location = null;
+			String img = null, name = null, content = null, location = null;
 			ArrayList list = (ArrayList) Profile.getProfile();
-			for (int i = 0; i < list.size(); i = i + 3) {
-				img = "upload/" + (String) list.get(i);
-				System.out.println(img);
-				content = (String) list.get(i + 1);
-				location = (String) list.get(i + 2);
+			for (int i = 0; i < list.size(); i = i + 4) {
+				img = (String) list.get(i);
+				name = (String) list.get(i + 1);
+				content = (String) list.get(i + 2);
+				location = (String) list.get(i + 3);
 		%>
 		<table border="1" height="200px" width="500px"
 			style="border-collapse: collapse;">
 			<tr>
-				<td rowspan="2" height="100px" width="150px"><img
-					src="<%=img%>" height="200px"></td>
+				<td height="100px" width="150px"><img
+					src="<%=request.getContextPath()%>/mojuk/upload/<%=img%>"
+					height="180px" width="140px" style="margin: 5px;"></td>
 				<td height="150px"><%=content%></td>
 			</tr>
 			<tr>
+				<td style="text-align: center;"><%=name%></td>
 				<td><%=location%></td>
 			</tr>
 		</table>
 		<%
 			}
 		%>
-		<form action="write.jsp" style="margin:5px;">
+		<%
+			if (session.getAttribute("idd") == null) {
+			} else if (session.getAttribute("idd").equals("root")) {
+		%>
+		<form action="write.jsp" style="margin: 5px;">
 			<input type="submit" value="프로필 작성">
 		</form>
-		<%@include file="../include/bottom.jsp"%>
+		<%
+			}
+		%>
+		<%-- <%@include file="../include/bottom.jsp"%> --%>
 	</center>
 </body>
 </html>

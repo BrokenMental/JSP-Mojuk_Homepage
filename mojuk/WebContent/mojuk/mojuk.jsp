@@ -1,48 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="EUC-KR"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>¸ðÁ× ¼Ò°³</title>
+<title>ëª¨ì£½ ì†Œê°œ</title>
 <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" />
 </head>
 <body>
 	<center>
 		<%@include file="../include/main_include.jsp"%>
-		<!-- ÀÌ¹ÌÁö -->
+		<!-- ì´ë¯¸ì§€ -->
 		<div id="list_img">
 			<img src="../img/null_img.png" style="width: 1520px;">
 		</div>
 		<div id="main_ground">
 			<div id="main">
-				<!-- ¸Þ´º -->
+				<!-- ë©”ë‰´ -->
 				<ul style="text-align: center;">
 					<li class="main_menu"><a href="javascript:;"
 						style="text-decoration: none !important; color: #008000;"
 						onclick="javascript:showtab(0);"><h4>
-								<span style="color: #008000;">¸ðÁ× ¼Ò°³</span>
+								<span style="color: #008000;">ëª¨ì£½ ì†Œê°œ</span>
 							</h4></a></li>
 					<li class="main_menu"><a href="javascript:;"
 						style="text-decoration: none !important; color: #008000;"
 						onclick="javascript:showtab(1);"><h4>
-								<span style="color: #008000;">¸ðÁ× ¸íºÎ</span>
+								<span style="color: #008000;">ëª¨ì£½ ëª…ë¶€</span>
 							</h4></a></li>
 				</ul>
 
-				<div id="tab0" class="tab">
+				<div id="tab0" class="tab" style="margin-top:70px;">
 					<div class="bar" style="float: left; height: 3px;"></div>
-					<div style="float: right;">¢Â ¸ðÁ× ¼Ò°³</div>
-					<br> <span style="color: #008000;"><h2>¸ðÁ× ¼Ò°³</h2></span>
-					<hr>
+					<div style="float: right;">â—ˆ ëª¨ì£½ ì†Œê°œ</div>
+					<br> <span style="color: #008000;"></span>
 					<hr>
 				</div>
 
-				<div id="tab1" class="tab">
+				<div id="tab1" class="tab" style="margin-top:70px;">
 					<div class="bar" style="float: left; height: 3px;"></div>
-					<div style="float: right;">¢Â ¸ðÁ× 2017</div>
-					<br> <span style="color: #008000;"><h2>¸ðÁ× Ä£±¸µé</h2></span>
-					<hr>
+					<div style="float: right;">â—ˆ ëª¨ì£½ 2017</div>
+					<br> <span style="color: #008000;"></span>
 					<hr>
 					<%@include file="Profile.jsp" %>
 				</div>
