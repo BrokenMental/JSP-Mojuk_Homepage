@@ -11,15 +11,17 @@ com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 	request.setCharacterEncoding("UTF-8");
 
 	MultipartRequest multi = null;
-	int sizeLimit = 10 * 1024 * 1024; //10MB
-	String savePath = request.getRealPath("pj/pj_upload"); //파일이 업로드 될 실제 tomcat 폴더의 Webcontent 기준
+	int sizeLimit = 100 * 1024 * 1024; //100MB
+	String savePath = request.getRealPath("/pj_upload"); //파일이 업로드 될 실제 tomcat 폴더의 Webcontent 기준
+
 	try {
 		multi = new MultipartRequest(request, savePath, sizeLimit, "UTF-8", new DefaultFileRenamePolicy());
+		Enumeration files = multi.getFileNames();
+		String file = (String) files.nextElement();
+		String filename = multi.getFilesystemName("filename");
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
-
-	//String filename = multi.getFilesystemName("filename");
 
 	Class.forName("com.mysql.jdbc.Driver");
 
