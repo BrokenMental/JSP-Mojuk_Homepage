@@ -34,11 +34,10 @@
 						placeholder="개인페이지 링크(없으면 없음 기재)"></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="file" id="imgInp" name="img"
-						style="width: 400px;" /><input type=button value="취소"
-						OnClick="javascript:history.back(-1)" style="float: right;"><input
-						type="submit" value="저장" style="float: right;"
-						OnClick="javascript:writeCheck();"></td>
+					<td colspan="2"><input type="file"
+						id="imgInp" name="img" style="width: 400px; float: left;" /><input
+						type="submit" value="저장" OnClick="javascript:writeCheck();" style="margin-left:20px;"><input
+						type=button value="취소" OnClick="javascript:history.back(-1)"></td>
 				</tr>
 			</table>
 		</form>
