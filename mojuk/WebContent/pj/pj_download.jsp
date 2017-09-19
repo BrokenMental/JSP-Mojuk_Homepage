@@ -7,14 +7,14 @@
 <%@ page import="java.net.URLEncoder" %>
 <%
 	String FileName = request.getParameter("filename");
-	String savedPath = "pj_upload";
+	/* String savedPath = "pj_upload";
 	ServletContext context = getServletContext();
-	String downPath = context.getRealPath(savedPath);
-	System.out.println("다운로드 위치" + downPath);
-	String sFilePath = downPath + "\\" + FileName;
+	String downPath = context.getRealPath(savedPath); */
+	String downPath = "C:/apache-tomcat-8.0.46/webapps/mojuk/pj/pj_upload";
+	String sFilePath = downPath + "/" + FileName;
 	try {
 		File oFile = new File(sFilePath); //위 문자열을 파일로 인식해야함
-		byte b[] = new byte[10 * 1024 * 1024];
+		byte b[] = new byte[100 * 1024 * 1024];
 		String sMimeType = getServletContext().getMimeType(sFilePath); //유형 확인
 		
 		//파일 다운로드 시작

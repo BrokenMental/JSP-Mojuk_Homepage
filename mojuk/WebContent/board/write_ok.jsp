@@ -25,13 +25,12 @@
 			max = rs.getInt(1);
 		}
 
-		sql = "INSERT INTO board (USERNAME,TITLE,MEMO,) VALUES(?,?,?,?)";
+		sql = "INSERT INTO board (USERNAME,TITLE,MEMO) VALUES(?,?,?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 
 		pstmt.setString(1, name);
 		pstmt.setString(2, title);
 		pstmt.setString(3, memo);
-		pstmt.setString(4, hit);
 
 		pstmt.execute();
 		pstmt.close();
