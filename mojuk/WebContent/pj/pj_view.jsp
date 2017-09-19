@@ -13,7 +13,7 @@
 		Connection conn = DriverManager.getConnection(url, id, pass);
 		Statement stmt = conn.createStatement();
 
-		String sql = "SELECT username, title, memo, time, hit FROM project WHERE id=" + idx;
+		String sql = "SELECT username, title, memo, time, hit, filename FROM project WHERE id=" + idx;
 		ResultSet rs = stmt.executeQuery(sql);
 		if (rs.next()) {
 			String name = rs.getString(1);
@@ -21,6 +21,7 @@
 			String memo = rs.getString(3);
 			String time = rs.getString(4);
 			int hit = rs.getInt(5);
+			String filename = rs.getString(6);
 			hit++;
 %>
 
@@ -43,8 +44,8 @@
 				<td>
 					<table width="100%" cellpadding="0" cellspacing="0" border="0">
 						<tr
-							style="background: url('image/table_mid.gif') repeat-x; text-align: center;">
-							<td width="5"><img src="image/table_left.gif" width="5"
+							style="background: url('../img/table_mid.gif') repeat-x; text-align: center;">
+							<td width="5"><img src="../img/table_left.gif" width="5"
 								height="30" /></td>
 							<td>내 용</td>
 							<td width="5"><img src="image/table_right.gif" width="5"
@@ -106,8 +107,8 @@
 						</tr>
 						<tr>
 							<td width="0">&nbsp;</td>
-							<th align="left" width="80" colspan="2">[첨부파일]</th>
-							<td colspan="8">${article.filename}</td>
+							<!-- <th align="left" colspan="2" style="width:10px;">[첨부파일]</th> -->
+							<td colspan="8"> [첨부파일] <a href="pj_download.jsp?filename=<%=filename %>"><%=filename %></a></td>
 						</tr>
 						<tr height="1" bgcolor="#dddddd">
 							<td colspan="4" width="407"></td>

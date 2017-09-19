@@ -26,11 +26,11 @@
 				location = (String) list.get(i + 3);
 		%>
 		<table border="1" height="200px" width="500px"
-			style="border-collapse: collapse;">
+			style="border-collapse: collapse; border:0px; margin:5px;">
 			<tr>
 				<td height="100px" width="150px"><img
 					src="<%=request.getContextPath()%>/mojuk/upload/<%=img%>"
-					height="180px" width="140px" style="margin: 5px;"></td>
+					height="150px" width="120px" style="margin: 20px;"></td>
 				<td height="150px"><%=content%></td>
 			</tr>
 			<tr>

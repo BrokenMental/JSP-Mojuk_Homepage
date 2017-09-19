@@ -83,7 +83,7 @@
 				rs = stmt.executeQuery(sqlList);
 		%>
 
-		<table width="100%" cellpadding="0" cellspacing="0" border="0">
+		<table width="1000px" cellpadding="0" cellspacing="0" border="0">
 			<tr height="5">
 				<td width="5"></td>
 			</tr>

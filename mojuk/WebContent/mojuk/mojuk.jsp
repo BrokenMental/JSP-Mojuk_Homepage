@@ -47,7 +47,9 @@
 			</div>
 			<!-- main_end -->
 		</div>
-		<%@include file="../include/bottom.jsp"%>
+		<div style="margin-top:5px;">
+			<%@include file="../include/bottom.jsp"%>
+		</div>
 		<script>
 			function showtab(a) {
 				for (i = 0; i <= 1; i++) {
