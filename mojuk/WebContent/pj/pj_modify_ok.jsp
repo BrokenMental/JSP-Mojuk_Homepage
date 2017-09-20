@@ -8,8 +8,7 @@
 	String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
 	String id = "root";
 	String pass = "1234";
-	String password = "";
-	
+
 	Connection conn = DriverManager.getConnection(url, id, pass);
 	Statement stmt = conn.createStatement();
 
@@ -18,37 +17,23 @@
 		int idx = Integer.parseInt(request.getParameter("idx"));
 		String title = request.getParameter("title");
 		String memo = request.getParameter("memo");
-		String passw = request.getParameter("password");
 
-		String sql = "SELECT password FROM project WHERE id=" + idx;
-		ResultSet rs = stmt.executeQuery(sql);
-
-		if (rs.next()) {
-			password = rs.getString(1);
-		}
-
-		if (password.equals(passw)) {
-			sql = "UPDATE project SET title='" + title + "' ,memo='" + memo + "' WHERE id=" + idx;
-			stmt.executeUpdate(sql);
+		String sql = "UPDATE project SET title='" + title + "' ,memo='" + memo + "' WHERE id=" + idx;
+		stmt.executeUpdate(sql);
 %>
 <script language=javascript>
-				  	self.window.alert("글이 수정되었습니다.");
-				  	location.href="pj_view.jsp";
+	self.window.alert("글이 수정되었습니다.");
+	location.href = "pj_view.jsp";
 </script>
 <%
-	rs.close();
 	stmt.close();
-	conn.close();
-
-		} else {
+		conn.close();
 %>
 <script language=javascript>
 	self.window.alert("비밀번호를 틀렸습니다.");
 	location.href = "javascript:history.back()";
 </script>
 <%
-	}
-
 	} catch (SQLException e) {
 		out.println(e.toString());
 	}

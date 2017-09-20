@@ -42,7 +42,7 @@
 					<div style="float: right;">¢Â 2018</div>
 					<br> <span style="color: #008000;"><h2>2018</h2></span>
 					<hr>
-					<%@include file="list.jsp" %>
+					<%-- <%@include file="gallery_list.jsp" %> --%>
 				</div>
 			</div>
 			<!-- main_end -->

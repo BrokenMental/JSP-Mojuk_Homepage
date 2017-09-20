@@ -18,15 +18,15 @@
 		Connection conn = DriverManager.getConnection(url, id, pass);
 		Statement stmt = conn.createStatement();
 
-		String sql = "SELECT USERNAME, PASSWORD, TITLE, MEMO FROM notice WHERE ID=" + idx;
+		String sql = "SELECT USERNAME, TITLE, MEMO FROM notice WHERE ID=" + idx;
 		ResultSet rs = stmt.executeQuery(sql);
 
 		if (rs.next()) {
 
 			name = rs.getString(1);
-			password = rs.getString(2);
-			title = rs.getString(3);
-			memo = rs.getString(4);
+			title = rs.getString(2);
+			memo = rs.getString(3);
+			memo = memo.replaceAll("<br>","\r\n");
 		}
 
 		rs.close();

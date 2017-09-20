@@ -12,6 +12,7 @@
 	String name = request.getParameter("name");
 	String title = request.getParameter("title");
 	String memo = request.getParameter("memo");
+	memo = memo.replace("\r\n","<br>");
 
 	int max = 0;
 

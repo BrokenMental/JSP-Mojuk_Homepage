@@ -62,7 +62,7 @@
 				</div>
 				<div class="menu">
 					<h3>
-						<a href="../gall/gall.jsp"
+						<a href="../gall/gallery_list.jsp"
 							style="text-decoration: none !important; color: black;">갤러리</a>
 					</h3>
 				</div>

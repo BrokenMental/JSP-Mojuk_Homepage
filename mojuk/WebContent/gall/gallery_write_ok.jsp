@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="java.util.*"%>
+<%@ page import="javax.*" %>
 <%@ page
 	import="java.io.File, java.io.IOException,
 com.oreilly.servlet.MultipartRequest,
@@ -11,45 +12,48 @@ com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 	request.setCharacterEncoding("UTF-8");
 
 	MultipartRequest multi = null;
-	int sizeLimit = 100 * 1024 * 1024; //100MB
-	//String savePath = request.getRealPath("/pj/pj_upload"); //파일이 업로드 될 실제 tomcat 폴더의 Webcontent 기준
-	String savePath = "C:/apache-tomcat-8.0.46/webapps/project";
-
-	try {
-		multi = new MultipartRequest(request, savePath, sizeLimit, "UTF-8", new DefaultFileRenamePolicy());
-		Enumeration files = multi.getFileNames();
-		String file = (String) files.nextElement();
-		String filename = multi.getFilesystemName("filename");
+	int sizeLimit = 10 * 1024 * 1024; //10MB
+	//String savePath = request.getServletContext().getRealPath("img/gallery_upload");
+	//String savePath = request.getRealPath("img/gallery_upload"); //파일이 업로드 될 실제 tomcat 폴더의 Webcontent 기준
+	//String savePath = "C:/Users/mojuk/git/Mojuk_Homepage/mojuk/WebContent/gall/gallery_upload"; //local
+	String savePath = "C:/apache-tomcat-8.0.46/webapps/mojuk/gall/gallery_upload"; //server
+	//String encType = "UTF-8";
+	multi = new MultipartRequest(request, savePath, sizeLimit, "UTF-8", new DefaultFileRenamePolicy());
+	
+	//String filename = multi.getFilesystemName("filename");
 
 	Class.forName("com.mysql.jdbc.Driver");
 
 	String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
 	String id = "root";
 	String pass = "1234";
-	String name = multi.getParameter("name");
+	String UserName = multi.getParameter("UserName");
 	String title = multi.getParameter("title");
-	String memo = multi.getParameter("memo");
-
+	String Contents = multi.getParameter("Contents");
+	String FilePath = multi.getFilesystemName("FilePath");
+	
+	//System.out.println(FilePath);
+	
 	int max = 0;
 
+	try {
 		Connection conn = DriverManager.getConnection(url, id, pass);
 		Statement stmt = conn.createStatement();
 
-		String sql = "SELECT MAX(ID) FROM project";
+		String sql = "SELECT MAX(ID) FROM Gallery";
 		ResultSet rs = stmt.executeQuery(sql);
 
 		if (rs.next()) {
 			max = rs.getInt(1);
 		}
 
-		sql = "INSERT INTO project(USERNAME,TITLE,MEMO,REF,FILENAME) VALUES(?,?,?,?,?)";
+		sql = "INSERT INTO gallery(ID,title,FilePath,UserName) VALUES(?,?,?,?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 
-		pstmt.setString(1, name);
+		pstmt.setInt(1, max + 1);
 		pstmt.setString(2, title);
-		pstmt.setString(3, memo);
-		pstmt.setInt(4, max + 1);
-		pstmt.setString(5, filename);
+		pstmt.setString(3, FilePath);
+		pstmt.setString(4, UserName);
 
 		pstmt.execute();
 		pstmt.close();
@@ -57,10 +61,9 @@ com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 		conn.close();
 	} catch (SQLException e) {
 		out.println(e.toString());
-		e.printStackTrace();
 	}
 %>
 <script language=javascript>
 	self.window.alert("입력한 글을 저장하였습니다.");
-	location.href = "pj_list.jsp";
+	location.href = "gallery_list.jsp";
 </script>

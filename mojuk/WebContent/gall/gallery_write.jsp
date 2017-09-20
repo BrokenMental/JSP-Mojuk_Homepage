@@ -9,10 +9,6 @@
 </head>
 <body>
 	<%@include file="../include/main_include.jsp"%>
-	<!-- 이미지 -->
-	<div id="list_img">
-		<img src="../img/Board.png" style="width: 1520px;">
-	</div>
 	<table align="center">
 		<tr>
 			<td>
@@ -27,12 +23,12 @@
 					</tr>
 				</table>
 				<form name=writeform method=post enctype="multipart/form-data"
-					action="pj_write_ok.jsp">
+					action="gallery_write_ok.jsp">
 					<table>
 						<tr>
 							<td>&nbsp;</td>
 							<td align="center">제목</td>
-							<td>&nbsp;<input name="title" size="50" maxlength="100"></td>
+							<td><input name="title" size="50" maxlength="100"></td>
 							<td>&nbsp;</td>
 						</tr>
 						<tr height="1" bgcolor="#dddddd">
@@ -41,25 +37,16 @@
 						<tr>
 							<td>&nbsp;</td>
 							<td align="center">이름</td>
-							<td><input name="name" size="50" maxlength="50" value="<%=session.getAttribute("idd")%>" readonly style="border:0px;"></td>
+							<td><input name="UserName" maxlength="50" value="<%=session.getAttribute("idd")%>" readonly style="border:0px; float:left;"></td>
 							<td>&nbsp;</td>
 						</tr>
 						<tr height="1" bgcolor="#dddddd">
 							<td colspan="4"></td>
-						</tr>
-						<tr height="1" bgcolor="#dddddd">
-							<td colspan="4"></td>
-						</tr>
-						<tr>
-							<td>&nbsp;</td>
-							<td align="center">내용</td>
-							<td>&nbsp;<textarea name="memo" cols="50" rows="13"></textarea></td>
-							<td>&nbsp;</td>
 						</tr>
 						<tr>
 							<td>&nbsp;</td>
 							<td align="center">첨부파일</td>
-							<td><input type="file" name="filename" size="50"
+							<td><input type="file" name="FilePath" size="50"
 								maxlength="50"></td>
 							<td>&nbsp;</td>
 						</tr>
@@ -86,7 +73,7 @@
 		function writeCheck() {
 			var form = document.writeform;
 
-			if (!form.name.value) // form 에 있는 name 값이 없을 때
+			if (!form.Username.value) // form 에 있는 name 값이 없을 때
 			{
 				alert("이름을 적어주세요"); // 경고창 띄움
 				form.name.focus(); // form 에 있는 name 위치로 이동
@@ -99,12 +86,7 @@
 				return;
 			}
 
-			if (!form.filename.value) {
-				alert("파일을 선택해주세요");
-				return;
-			}
-			
-			if (!form.memo.value) {
+			if (!form.Contents.value) {
 				alert("내용을 적어주세요");
 				form.memo.focus();
 				return;

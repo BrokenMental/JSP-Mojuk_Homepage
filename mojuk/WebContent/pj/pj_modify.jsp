@@ -28,6 +28,7 @@
 			password = rs.getString(2);
 			title = rs.getString(3);
 			memo = rs.getString(4);
+			memo = memo.replaceAll("<br>","\r\n");
 		}
 
 		rs.close();

@@ -18,17 +18,9 @@
 		int idx = Integer.parseInt(request.getParameter("idx"));
 		String title = request.getParameter("title");
 		String memo = request.getParameter("memo");
-		String passw = request.getParameter("password");
+		memo = memo.replace("\r\n","<br>");
 
-		String sql = "SELECT PASSWORD FROM notice WHERE ID=" + idx;
-		ResultSet rs = stmt.executeQuery(sql);
-
-		if (rs.next()) {
-			password = rs.getString(1);
-		}
-
-		if (password.equals(passw)) {
-			sql = "UPDATE notice SET TITLE='" + title + "' ,MEMO='" + memo + "' WHERE ID=" + idx;
+		String sql = "UPDATE notice SET TITLE='" + title + "' ,MEMO='" + memo + "' WHERE ID=" + idx;
 			stmt.executeUpdate(sql);
 %>
 <script language=javascript>
@@ -36,19 +28,14 @@
 				  	location.href="Board_View.jsp?idx=<%=idx%>";
 </script>
 <%
-	rs.close();
 			stmt.close();
 			conn.close();
-
-		} else {
 %>
 <script language=javascript>
 	self.window.alert("비밀번호를 틀렸습니다.");
 	location.href = "javascript:history.back()";
 </script>
 <%
-	}
-
 	} catch (SQLException e) {
 		out.println(e.toString());
 	}

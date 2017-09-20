@@ -23,14 +23,15 @@
 				img = (String) list.get(i);
 				name = (String) list.get(i + 1);
 				content = (String) list.get(i + 2);
+				content = content.replaceAll("<br>","\r\n");
 				location = (String) list.get(i + 3);
 		%>
 		<table border="1" height="200px" width="500px"
 			style="border-collapse: collapse; border:0px; margin:5px;">
 			<tr>
-				<td height="100px" width="150px"><img
-					src="<%=request.getContextPath()%>/mojuk/upload/<%=img%>"
-					height="150px" width="120px" style="margin: 20px;"></td>
+				<td height="100px" width="150px">
+				<img src="<%=request.getContextPath()%>/mojuk/upload/<%=img%>" height="150px" width="120px" style="margin: 20px;">
+				</td>
 				<td height="150px"><%=content%></td>
 			</tr>
 			<tr>

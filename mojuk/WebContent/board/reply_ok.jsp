@@ -10,7 +10,6 @@
 	Class.forName("com.mysql.jdbc.Driver");
 
 	String name = request.getParameter("name");
-	String password = request.getParameter("password");
 	String title = request.getParameter("title");
 	String memo = request.getParameter("memo");
 	int idx = Integer.parseInt(request.getParameter("idx"));
@@ -35,16 +34,15 @@
 		sql = "UPDATE board SET STEP=STEP+1 where REF=" + ref + " and STEP>" + step;
 		stmt.executeUpdate(sql);
 
-		sql = "INSERT INTO board(USERNAME, PASSWORD, TITLE, MEMO, REF, INDENT, STEP) "
-				+ "values(?,?,?,?,?,?,?)";
+		sql = "INSERT INTO board(USERNAME, TITLE, MEMO, REF, INDENT, STEP) "
+				+ "values(?,?,?,?,?,?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, name);
-		pstmt.setString(2, password);
-		pstmt.setString(3, title);
-		pstmt.setString(4, memo);
-		pstmt.setInt(5, ref);
-		pstmt.setInt(6, indent + 1);
-		pstmt.setInt(7, step + 1);
+		pstmt.setString(2, title);
+		pstmt.setString(3, memo);
+		pstmt.setInt(4, ref);
+		pstmt.setInt(5, indent + 1);
+		pstmt.setInt(6, step + 1);
 
 		pstmt.execute();
 		rs.close();
