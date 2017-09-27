@@ -13,7 +13,7 @@ com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 	MultipartRequest multi = null;
 	int sizeLimit = 100 * 1024 * 1024; //100MB
 	//String savePath = request.getRealPath("/pj/pj_upload"); //파일이 업로드 될 실제 tomcat 폴더의 Webcontent 기준
-	String savePath = "C:/apache-tomcat-8.0.46/webapps/project";
+	String savePath = "C:/apache-tomcat-8.0.46/webapps/mojuk/pj/pj_upload";
 
 	try {
 		multi = new MultipartRequest(request, savePath, sizeLimit, "UTF-8", new DefaultFileRenamePolicy());
@@ -29,6 +29,7 @@ com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 	String name = multi.getParameter("name");
 	String title = multi.getParameter("title");
 	String memo = multi.getParameter("memo");
+	memo = memo.replace("\r\n","<br>");
 
 	int max = 0;
 

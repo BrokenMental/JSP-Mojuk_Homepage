@@ -34,14 +34,14 @@
 		sql = "UPDATE board SET STEP=STEP+1 where REF=" + ref + " and STEP>" + step;
 		stmt.executeUpdate(sql);
 
-		sql = "INSERT INTO board(USERNAME, TITLE, MEMO, REF, INDENT, STEP) "
+		sql = "INSERT INTO board(USERNAME, TITLE, MEMO, REF, INDENT, STEP)"
 				+ "values(?,?,?,?,?,?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, name);
 		pstmt.setString(2, title);
 		pstmt.setString(3, memo);
 		pstmt.setInt(4, ref);
-		pstmt.setInt(5, indent + 1);
+		pstmt.setInt(5, indent +1);
 		pstmt.setInt(6, step + 1);
 
 		pstmt.execute();

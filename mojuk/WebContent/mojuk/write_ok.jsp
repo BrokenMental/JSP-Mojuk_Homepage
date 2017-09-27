@@ -38,6 +38,7 @@
 			
 			String content = multi.getParameter("content");
 			content = content.replace("\r\n","<br>");
+			System.out.println(content);
 
 			pstmt.setString(1, filename);
 			pstmt.setString(2, content);

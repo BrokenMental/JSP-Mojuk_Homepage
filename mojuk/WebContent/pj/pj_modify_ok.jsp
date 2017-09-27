@@ -17,6 +17,7 @@
 		int idx = Integer.parseInt(request.getParameter("idx"));
 		String title = request.getParameter("title");
 		String memo = request.getParameter("memo");
+		memo = memo.replace("\r\n","<br>");
 
 		String sql = "UPDATE project SET title='" + title + "' ,memo='" + memo + "' WHERE id=" + idx;
 		stmt.executeUpdate(sql);

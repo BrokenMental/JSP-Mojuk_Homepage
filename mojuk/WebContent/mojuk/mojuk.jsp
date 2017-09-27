@@ -35,6 +35,7 @@
 					<div style="float: right;">◈ 모죽 소개</div>
 					<br> <span style="color: #008000;"></span>
 					<hr>
+					<%@include file="introduce.jsp" %>
 				</div>
 
 				<div id="tab1" class="tab" style="margin-top:70px;">

@@ -10,7 +10,7 @@
 	String id = "root";
 	String pass = "1234";
 	Class.forName("com.mysql.jdbc.Driver");
-	String sql = "select * from Gallery";
+	String sql = "select * from Gallery order by id desc";
 	int total = 0;
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -34,16 +34,23 @@
 </head>
 <body>
 	<%@include file="../include/main_include.jsp"%>
-	<div id="go_year">
+	<!-- <div id="go_year">
 		<select name="s_year" id="p_year">
 			<option value="">전체</option>
 			<option value="2017년">2017</option>
 			<option value="2018년">2018</option>
 		</select> <input type="button" value="검색" onclick="Gall_search()">
-	</div>
+	</div> -->
+	<%
+		if (session.getAttribute("idd") == null) {
+		} else {
+	%>
 	<form action="gallery_write.jsp" style="margin: 5px;">
 		<input type="submit" value="사진올리기">
 	</form>
+	<%
+		}
+	%>
 	<center>
 		<div id="photo_back">
 			<%
@@ -66,8 +73,10 @@
 					width="210px" height="140px">
 				<%-- <a href="gallery_view.jsp?idx=<%=ID%>">
 				</a> --%>
-				<div>제목 : <%=Title%></div>
-				<div>게시자 : <%=UserName%></div>
+				<div>
+					<%=Title%></div>
+				<div>
+					<%=UserName%></div>
 				<%-- <div>시간 : <%=time%></div> --%>
 			</div>
 

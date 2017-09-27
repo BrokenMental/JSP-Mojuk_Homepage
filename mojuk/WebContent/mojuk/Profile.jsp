@@ -5,7 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>소개</title>
-<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" />
 </head>
 <body>
 	<%-- <%@include file="../include/main_include.jsp"%>
@@ -23,7 +22,7 @@
 				img = (String) list.get(i);
 				name = (String) list.get(i + 1);
 				content = (String) list.get(i + 2);
-				content = content.replaceAll("<br>","\r\n");
+				/* content = content.replaceAll("<br>","\r\n"); */
 				location = (String) list.get(i + 3);
 		%>
 		<table border="1" height="200px" width="500px"

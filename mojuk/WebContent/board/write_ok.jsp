@@ -12,10 +12,10 @@
 	int max = 0;
 
 	try {
+		Class.forName("com.mysql.jdbc.Driver");
 		String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
 		String id = "root";
 		String pass = "1234";
-		Class.forName("com.mysql.jdbc.Driver");
 		Connection conn = DriverManager.getConnection(url, id, pass);
 		Statement stmt = conn.createStatement();
 
@@ -26,12 +26,13 @@
 			max = rs.getInt(1);
 		}
 
-		sql = "INSERT INTO board (USERNAME,TITLE,MEMO) VALUES(?,?,?)";
+		sql = "INSERT INTO board (USERNAME,TITLE,MEMO,REF) VALUES(?,?,?,?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 
 		pstmt.setString(1, name);
 		pstmt.setString(2, title);
 		pstmt.setString(3, memo);
+		pstmt.setInt(4, max+1);
 
 		pstmt.execute();
 		pstmt.close();

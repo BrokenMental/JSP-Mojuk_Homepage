@@ -41,7 +41,7 @@
 								<td>&nbsp;</td>
 								<td align="center">이름</td>
 								<td><input name="name" size="50" maxlength="50"
-									value="&nbsp;<%=session.getAttribute("idd")%>" readonly
+									value="<%=session.getAttribute("idd")%>" readonly
 									style="border: 0px;"></td>
 								<td>&nbsp;</td>
 							</tr>

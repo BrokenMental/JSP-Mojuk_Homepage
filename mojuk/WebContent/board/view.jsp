@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
@@ -8,6 +9,7 @@
 	String id = "root";
 	String pass = "1234";
 	Class.forName("com.mysql.jdbc.Driver");
+	String name = "";
 
 	try {
 
@@ -17,7 +19,7 @@
 		String sql = "SELECT USERNAME, TITLE, MEMO, TIME, HIT FROM board WHERE NUM=" + idx;
 		ResultSet rs = stmt.executeQuery(sql);
 		if (rs.next()) {
-			String name = rs.getString(1);
+			name = rs.getString(1);
 			String title = rs.getString(2);
 			String memo = rs.getString(3);
 			String time = rs.getString(4);
