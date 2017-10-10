@@ -83,7 +83,7 @@ public class connection {
 	public List getProfile() {
 		connect();
 		List profile = new ArrayList();
-		String sql = "select img,name,content,location from profile";
+		String sql = "select img,name,content,location,position from profile";
 		try {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -93,6 +93,7 @@ public class connection {
 				profile.add(rs.getString(2));
 				profile.add(rs.getString(3));
 				profile.add(rs.getString(4));
+				profile.add(rs.getString(5));
 			}
 			rs.close();
 			pstmt.close();

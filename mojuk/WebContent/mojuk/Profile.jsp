@@ -16,15 +16,21 @@
 	<center>
 		<%
 			request.setCharacterEncoding("UTF-8");
-			String img = null, name = null, content = null, location = null;
+			String img = null, name = null, content = null, location = null, position = null;
 			ArrayList list = (ArrayList) Profile.getProfile();
-			for (int i = 0; i < list.size(); i = i + 4) {
+			for (int i = 0; i < list.size(); i = i + 5) {
 				img = (String) list.get(i);
 				name = (String) list.get(i + 1);
 				content = (String) list.get(i + 2);
 				/* content = content.replaceAll("<br>","\r\n"); */
 				location = (String) list.get(i + 3);
+				position = (String) list.get(i + 4);
+				System.out.println(position);
+				
+				if(position.equals("prof")){
+					
 		%>
+		<h3>지도교수</h3>
 		<table border="1" height="200px" width="500px"
 			style="border-collapse: collapse; border:0px; margin:5px;">
 			<tr>
@@ -38,10 +44,50 @@
 				<td><%=location%></td>
 			</tr>
 		</table>
+		<hr width="800px">
 		<%
-			}
+				}else if(position.equals("exec")){
+					
 		%>
+		<h3>동아리 임원</h3>
+		<table border="1" height="200px" width="500px"
+			style="border-collapse: collapse; border:0px; margin:5px;">
+			<tr>
+				<td height="100px" width="150px">
+				<img src="<%=request.getContextPath()%>/mojuk/upload/<%=img%>" height="150px" width="120px" style="margin: 20px;">
+				</td>
+				<td height="150px"><%=content%></td>
+			</tr>
+			<tr>
+				<td style="text-align: center;"><%=name%></td>
+				<td><%=location%></td>
+			</tr>
+		</table>
+		<hr width="800px">
 		<%
+					
+				}else if(position.equals("memb")){
+					
+		%>
+		<h3>동아리 멤버</h3>
+		<table border="1" height="200px" width="500px"
+			style="border-collapse: collapse; border:0px; margin:5px;">
+			<tr>
+				<td height="100px" width="150px">
+				<img src="<%=request.getContextPath()%>/mojuk/upload/<%=img%>" height="150px" width="120px" style="margin: 20px;">
+				</td>
+				<td height="150px"><%=content%></td>
+			</tr>
+			<tr>
+				<td style="text-align: center;"><%=name%></td>
+				<td><%=location%></td>
+			</tr>
+		</table>
+		<hr width="800px">
+		<%
+					
+				}
+			}
 			if (session.getAttribute("idd") == null) {
 			} else if (session.getAttribute("idd").equals("root")) {
 		%>

@@ -33,17 +33,17 @@
 			Connection conn = DriverManager.getConnection(url, id, pass);
 			Statement stmt = conn.createStatement();
 
-			String sql = "insert into profile(img,content,location,name) VALUES(?,?,?,?)";
+			String sql = "insert into profile(img,content,location,name,position) VALUES(?,?,?,?,?)";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			
 			String content = multi.getParameter("content");
 			content = content.replace("\r\n","<br>");
-			System.out.println(content);
 
 			pstmt.setString(1, filename);
 			pstmt.setString(2, content);
 			pstmt.setString(3, multi.getParameter("location"));
 			pstmt.setString(4, multi.getParameter("name"));
+			pstmt.setString(5, multi.getParameter("position"));
 
 			pstmt.execute();
 			pstmt.close();

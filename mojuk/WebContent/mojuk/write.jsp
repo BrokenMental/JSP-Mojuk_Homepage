@@ -26,18 +26,26 @@
 							style="resize: none; height: 150px; width: 350px; border: 0px;"></textarea></td>
 				</tr>
 				<tr>
-					<td><input type="text" name="name"
-						style="height: 15px; width: 150px; border: 0px;"
-						placeholder="이름(직책)"></td>
+					<td>
+						<input type="text" name="name"
+						style="height: 15px; width: 80px; border: 0px;"
+						placeholder="이름">
+						<select name="position">
+							<option value="prof">교수</option>
+							<option value="exec">임원</option>
+							<option value="memb">멤버</option>
+						</select>
+					</td>
 					<td><input type="text" name="location"
 						style="height: 15px; width: 350px; border: 0px;"
 						placeholder="개인페이지 링크(없으면 없음 기재)"></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="file"
-						id="imgInp" name="img" style="width: 400px; float: left;" /><input
-						type="submit" value="저장" OnClick="javascript:writeCheck();" style="margin-left:20px;"><input
-						type=button value="취소" OnClick="javascript:history.back(-1)"></td>
+					<td colspan="2"><input type="file" id="imgInp" name="img"
+						style="width: 400px; float: left;" /><input type="submit"
+						value="저장" OnClick="javascript:writeCheck();"
+						style="margin-left: 20px;"><input type=button value="취소"
+						OnClick="javascript:history.back(-1)"></td>
 				</tr>
 			</table>
 		</form>
