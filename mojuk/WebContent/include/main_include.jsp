@@ -33,7 +33,7 @@
 			<!-- 상단 메뉴 -->
 			<div id="menu">
 				<div class="logo">
-					<a href="../main.jsp"><img src="../img/logo.png" width="160"
+					<a href="/"><img src="../img/logo.png" width="160"
 						height="60"></a>
 				</div>
 				<div class="menu" style="margin-left: 345px;">

@@ -11,7 +11,7 @@
 	%>
 	<script>
 		alert("로그아웃 하셨습니다.");
-		location.href = "../main.jsp";
+		location.href = "/";
 	</script>
 </body>
 </html>

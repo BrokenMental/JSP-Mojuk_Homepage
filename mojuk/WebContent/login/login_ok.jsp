@@ -27,7 +27,7 @@
 			System.out.println(id);
 			out.println("<script>");
 			out.println("alert('로그인에 성공하셨습니다');");
-			out.println("location.href='../main.jsp'");
+			out.println("location.href='/'");
 			out.println("</script>");
 		} else {
 			out.println("<script>");

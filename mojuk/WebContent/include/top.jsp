@@ -28,7 +28,7 @@
 	%>
 	<div>
 		<input type="button" value="로그인"
-			onclick="window.location.href='/mojuk/login/login.jsp';">
+			onclick="window.location.href='/login/login.jsp';">
 	</div>
 	<%
 		}
