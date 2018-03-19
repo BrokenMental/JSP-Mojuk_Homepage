@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -43,7 +43,7 @@
 				<!-- 상단 메뉴 -->
 				<div id="menu">
 					<div class="logo">
-						<a href="main.jsp"><img src="img/logo.png" width="160"
+						<a href="index.jsp"><img src="img/logo.png" width="160"
 							height="60"></a>
 					</div>
 					<div class="menu" style="margin-left: 345px;">

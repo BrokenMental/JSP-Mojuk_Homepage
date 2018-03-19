@@ -16,7 +16,7 @@ com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 	//String savePath = request.getServletContext().getRealPath("img/gallery_upload");
 	//String savePath = request.getRealPath("img/gallery_upload"); //파일이 업로드 될 실제 tomcat 폴더의 Webcontent 기준
 	//String savePath = "C:/Users/mojuk/git/Mojuk_Homepage/mojuk/WebContent/gall/gallery_upload"; //local
-	String savePath = "C:/apache-tomcat-8.0.46/webapps/mojuk/gall/gallery_upload"; //server
+	String savePath = "C:/apache-tomcat-8.0.46/gall/gallery_upload"; //server
 	//String encType = "UTF-8";
 	multi = new MultipartRequest(request, savePath, sizeLimit, "UTF-8", new DefaultFileRenamePolicy());
 	

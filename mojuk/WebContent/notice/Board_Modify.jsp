@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%
@@ -15,10 +15,11 @@
 	int idx = Integer.parseInt(request.getParameter("idx"));
 
 	try {
+
 		Connection conn = DriverManager.getConnection(url, id, pass);
 		Statement stmt = conn.createStatement();
 
-		String sql = "SELECT USERNAME, TITLE, MEMO FROM notice WHERE ID=" + idx;
+		String sql = "SELECT USERNAME, TITLE, MEMO FROM notice WHERE NUM=" + idx;
 		ResultSet rs = stmt.executeQuery(sql);
 
 		if (rs.next()) {
@@ -40,26 +41,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>게시판</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>게시물 수정</title>
 <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" />
 </head>
 <body>
-	<%@include file="../include/main_include.jsp"%>
-	<!-- 이미지 -->
-	<div id="list_img">
-		<img src="../img/Board.png" style="width: 1520px;">
-	</div>
 	<center>
+		<%@include file="../include/main_include.jsp"%>
+		<!-- 이미지 -->
+		<div id="list_img">
+			<img src="../img/Board.png" style="width: 1520px;">
+		</div>
 		<table>
 			<tr>
 				<td>
 					<table width="100%" cellpadding="0" cellspacing="0" border="0">
 						<tr
-							style="background: url('img/table_mid.gif') repeat-x; text-align: center;">
-							<td width="5"><img src="img/table_left.gif" width="5"
+							style="background: url('../img/table_mid.gif') repeat-x; text-align: center;">
+							<td width="5"><img src="../img/table_left.gif" width="5"
 								height="30" /></td>
 							<td>수정</td>
-							<td width="5"><img src="img/table_right.gif" width="5"
+							<td width="5"><img src="../img/table_right.gif" width="5"
 								height="30" /></td>
 						</tr>
 					</table>
@@ -69,7 +71,7 @@
 							<tr>
 								<td>&nbsp;</td>
 								<td align="center">제목</td>
-								<td><input type=text name=title size=50 maxlength=50
+								<td><input name="title" size="50" maxlength="100"
 									value="<%=title%>"></td>
 								<td>&nbsp;</td>
 							</tr>
@@ -79,8 +81,8 @@
 							<tr>
 								<td>&nbsp;</td>
 								<td align="center">이름</td>
-								<td><%=name%><input type=hidden name=name size=50
-									maxlength=50 value="<%=name%>"></td>
+								<td><%=name%><input type="hidden" name="name" size="50"
+									maxlength="50" value="<%=name%>"></td>
 								<td>&nbsp;</td>
 							</tr>
 							<tr height="1" bgcolor="#dddddd">
@@ -89,7 +91,7 @@
 							<tr>
 								<td>&nbsp;</td>
 								<td align="center">내용</td>
-								<td><textarea name=memo cols=50 rows=13><%=memo%></textarea></td>
+								<td><textarea name="memo" cols="50" rows="13"><%=memo%></textarea></td>
 								<td>&nbsp;</td>
 							</tr>
 							<tr height="1" bgcolor="#dddddd">
@@ -111,10 +113,8 @@
 			</tr>
 		</table>
 	</center>
-	<%@include file="../include/bottom.jsp"%>
 	<script language="javascript">
 		// 자바 스크립트 시작
-
 		function modifyCheck() {
 			var form = document.modifyform;
 

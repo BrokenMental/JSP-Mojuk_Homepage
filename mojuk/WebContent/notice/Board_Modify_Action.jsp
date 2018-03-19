@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
@@ -8,7 +8,6 @@
 	String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
 	String id = "root";
 	String pass = "1234";
-	String password = "";
 
 	Connection conn = DriverManager.getConnection(url, id, pass);
 	Statement stmt = conn.createStatement();
@@ -20,16 +19,16 @@
 		String memo = request.getParameter("memo");
 		memo = memo.replace("\r\n","<br>");
 
-		String sql = "UPDATE notice SET TITLE='" + title + "' ,MEMO='" + memo + "' WHERE ID=" + idx;
-			stmt.executeUpdate(sql);
+		String sql = "UPDATE notice SET TITLE='" + title + "' ,memo='" + memo + "' WHERE NUM=" + idx;
+		stmt.executeUpdate(sql);
 %>
 <script language=javascript>
-				  	self.window.alert("글이 수정되었습니다.");
-				  	location.href="Board_View.jsp?idx=<%=idx%>";
+	self.window.alert("글이 수정되었습니다.");
+	location.href = "Board_View.jsp";
 </script>
 <%
-			stmt.close();
-			conn.close();
+	stmt.close();
+		conn.close();
 %>
 <script language=javascript>
 	self.window.alert("비밀번호를 틀렸습니다.");
@@ -40,5 +39,3 @@
 		out.println(e.toString());
 	}
 %>
-
-

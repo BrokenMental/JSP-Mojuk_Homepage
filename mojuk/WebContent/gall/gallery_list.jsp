@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%
@@ -33,6 +33,11 @@
 <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" />
 </head>
 <body>
+		<!-- Devlop by NaKyung Lee -->
+		<!-- Devlop by NaKyung Lee -->
+		<!-- Devlop by NaKyung Lee -->
+		<!-- Devlop by NaKyung Lee -->
+		<!-- Devlop by NaKyung Lee -->
 	<%@include file="../include/main_include.jsp"%>
 	<!-- <div id="go_year">
 		<select name="s_year" id="p_year">
@@ -70,7 +75,8 @@
 			<div id="photo">
 				<img
 					src="<%=request.getContextPath()%>/gall/gallery_upload/<%=FilePath%>"
-					width="210px" height="140px">
+					width="210px" height="140px" id="galldiv<%=ID%>"
+					onmouseover="mouseover<%=ID%>()" onmouseout="mouseout<%=ID%>()">
 				<%-- <a href="gallery_view.jsp?idx=<%=ID%>">
 				</a> --%>
 				<div>
@@ -79,7 +85,18 @@
 					<%=UserName%></div>
 				<%-- <div>시간 : <%=time%></div> --%>
 			</div>
+	<script>
+    var galldiv<%=ID%> = document.getElementById("galldiv"+<%=ID %>);
+    function mouseover<%=ID%>() {
+        galldiv<%=ID%>.width = '350';
+        galldiv<%=ID%>.height = '280';
+    }
 
+    function mouseout<%=ID%>() {
+        galldiv<%=ID%>.width = '210';
+        galldiv<%=ID%>.height = '140';
+    }
+	</script>
 			<%
 				}
 				} catch (Exception e) {
@@ -97,10 +114,5 @@
 		</div>
 	</center>
 	<%@include file="../include/bottom.jsp"%>
-	<script>
-		function Gall_search() {
-
-		}
-	</script>
 </body>
 </html>

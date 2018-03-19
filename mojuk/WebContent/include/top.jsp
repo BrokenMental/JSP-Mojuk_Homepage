@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <div id="header">
@@ -19,7 +19,7 @@
 	%>
 	<!-- 톰캣 경로 설정과 맞지 않으므로 최상위인 mojuk을 넣어준다 -->
 	<div id="login_form">
-		<form action="/mojuk/login/logout.jsp"><%=idc%>님 <input
+		<form action="/login/logout.jsp"><%=idc%>님 <input
 				type="submit" value="로그아웃">
 		</form>
 	</div>

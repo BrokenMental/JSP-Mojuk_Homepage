@@ -1,29 +1,30 @@
-<%@ page import="java.sql.DriverManager"%>
+﻿<%@ page import="java.sql.DriverManager"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*,java.text.SimpleDateFormat,java.util.Date"%>
 <%
-	final int ROWSIZE = 10;
-	final int BLOCK = 5;
+	final int ROWSIZE = 10; //한페이지에 보일 게시물 수
+	final int BLOCK = 5; //아래에 보일 페이지 최대개수
 
-	int pg = 1;
+	int pg = 1; //기본 페이지값
 
-	if (request.getParameter("pg") != null) {
-		pg = Integer.parseInt(request.getParameter("pg"));
+	if (request.getParameter("pg") != null) { //받아온 pg값이 있을 때,
+		pg = Integer.parseInt(request.getParameter("pg")); //pg값을 저장
 	}
 
-	int start = (pg * ROWSIZE) - (ROWSIZE - 1);
-	int end = (pg * ROWSIZE);
+	int start = (pg * ROWSIZE) - (ROWSIZE - 1); //해당 페에지에서 시작번호(step2)
+	int end = (pg * ROWSIZE); //해당페이지에서 끝번호(step2)
 
-	int allPage = 0;
+	int allPage = 0; //전체 페이지수
 
-	int startPage = ((pg - 1) / BLOCK * BLOCK) + 1;
-	int endPage = ((pg - 1) / BLOCK * BLOCK) + BLOCK;
+	int startPage = ((pg - 1) / BLOCK * BLOCK) + 1; //시작블럭숫자
+	int endPage = ((pg - 1) / BLOCK * BLOCK) + BLOCK; //끝 블럭숫자
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>공지사항</title>
 <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" />
 </head>
@@ -40,7 +41,7 @@
 		<!-- Devlop by SeYeon Jeon -->
 		<!-- Devlop by SeYeon Jeon -->
 		<%
-			String Url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
+			String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
 			String id = "root";
 			String pass = "1234";
 			Class.forName("com.mysql.jdbc.Driver");
@@ -48,7 +49,7 @@
 
 			try {
 				request.setCharacterEncoding("UTF-8");
-				Connection conn = DriverManager.getConnection(Url, id, pass);
+				Connection conn = DriverManager.getConnection(url, id, pass);
 				Statement stmt = conn.createStatement();
 				Statement stmt1 = conn.createStatement();
 				String sql = "";
@@ -61,11 +62,12 @@
 				}
 
 				int sort = 1;
-				String sqlSort = "SELECT ID from notice order by ref desc, step asc";
+				String sqlSort = "SELECT NUM from notice order by ref desc, step asc";
 				rs = stmt.executeQuery(sqlSort);
+
 				while (rs.next()) {
 					int stepNum = rs.getInt(1);
-					sql = "UPDATE notice SET STEP=" + sort + " where ID=" + stepNum;
+					sql = "UPDATE notice SET STEP=" + sort + " where NUM=" + stepNum;
 					stmt1.executeUpdate(sql);
 					sort++;
 				}
@@ -74,15 +76,14 @@
 
 				if (endPage > allPage) {
 					endPage = allPage;
-				} //페이징
+				}
 
 				out.print("총 게시물 : " + total + "개");
 
-				String sqlList = "SELECT ID, USERNAME, TITLE, TIME, HIT, INDENT from notice where STEP >=" + start
+				String sqlList = "SELECT NUM, USERNAME, TITLE, TIME, HIT, INDENT from notice where STEP >=" + start
 						+ " and STEP <= " + end + " order by step asc";
 				rs = stmt.executeQuery(sqlList);
 		%>
-
 		<table width="1000px" cellpadding="0" cellspacing="0" border="0">
 			<tr height="5">
 				<td width="5"></td>
@@ -91,14 +92,15 @@
 				style="background: url('../img/table_mid.gif') repeat-x; text-align: center;">
 				<td width="5"><img src="../img/table_left.gif" width="5"
 					height="30" /></td>
-				<td width="73">번호</td>
-				<td width="379">제목</td>
-				<td width="73">작성자</td>
-				<td width="163">작성일</td>
-				<td width="58">조회수</td>
-				<td width="7"><img src="../img/table_right.gif" width="5"
+				<td width="70">번호</td>
+				<td width="380">제목</td>
+				<td width="70">작성자</td>
+				<td width="160">작성일</td>
+				<td width="60">조회수</td>
+				<td width="10"><img src="../img/table_right.gif" width="5"
 					height="30" /></td>
 			</tr>
+
 			<%
 				if (total == 0) {
 			%>
@@ -131,7 +133,7 @@
  				if (indent != 0) {
  %> <img src='../img/reply_icon.gif' /> <%
  	}
- %> <a href="Board_View.jsp?idx=<%=idx%>"><%=title%></a> <%
+ %> <a href="Board_View.jsp?idx=<%=idx%>&pg=<%=pg%>"><%=title%></a> <%
  	if (year.equals(yea)) {
  %> <img src='../img/new.jpg' /> <%
  	}
@@ -168,8 +170,8 @@
 				<td align="center">
 					<%
 						if (pg > BLOCK) {
-					%> [ <a href="Board_List.jsp?pg=1">◀◀</a>] [ <a
-					href="Board_List.jsp?pg=<%=startPage - 1%>">◀</a>] <%
+					%> [<a href="Board_List.jsp?pg=1">◀◀</a>] [<a
+					href="pj_list.jsp?pg=<%=startPage - 1%>">◀</a>] <%
 						}
 					%> <%
  	for (int i = startPage; i <= endPage; i++) {
@@ -177,12 +179,12 @@
  %> <u><b>[<%=i%>]
 					</b></u> <%
  	} else {
- %> [ <a href="Board_List.jsp?pg=<%=i%>"><%=i%></a>] <%
+ %> [<a href="Board_List.jsp?pg=<%=i%>"><%=i%></a>] <%
  	}
  	}
  %> <%
  	if (endPage < allPage) {
- %> [ <a href="Board_List.jsp?pg=<%=endPage + 1%>">▶</a>] [ <a
+ %> [<a href="Board_List.jsp?pg=<%=endPage + 1%>">▶</a>] [<a
 					href="Board_List.jsp?pg=<%=allPage%>">▶▶</a>] <%
  	}
  %>
@@ -191,10 +193,9 @@
 			<tr align="center">
 				<%
 					if (session.getAttribute("idd") == null) {
-				%>
-				<td></td>
+				%><td></td>
 				<%
-					} else if (session.getAttribute("idd").equals("root")) {
+					} else if (session.getAttribute("idd").equals("201744030")) {
 				%>
 				<td><input type=button value="글쓰기"
 					OnClick="window.location='Board_Write.jsp'"></td>
@@ -207,5 +208,3 @@
 	</center>
 </body>
 </html>
-
-

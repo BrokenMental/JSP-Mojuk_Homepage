@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%
@@ -15,7 +15,7 @@
 		Connection conn = DriverManager.getConnection(url, id, pass);
 		Statement stmt = conn.createStatement();
 
-		String sql = "SELECT USERNAME FROM notice WHERE ID=" + idx;
+		String sql = "SELECT USERNAME FROM notice WHERE NUM=" + idx;
 		ResultSet rs = stmt.executeQuery(sql);
 
 		if (rs.next()) {
@@ -24,7 +24,7 @@
 
 		if (name.equals(session.getAttribute("idd"))) {
 
-			sql = "DELETE FROM notice WHERE ID=" + idx;
+			sql = "DELETE FROM notice WHERE NUM=" + idx;
 			stmt.executeUpdate(sql);
 %>
 <script language=javascript>

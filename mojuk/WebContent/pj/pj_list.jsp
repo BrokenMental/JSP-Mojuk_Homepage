@@ -1,4 +1,4 @@
-<%@ page import="java.sql.DriverManager"%>
+﻿<%@ page import="java.sql.DriverManager"%>
 <%@ page import="java.sql.*,java.text.SimpleDateFormat,java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -193,7 +193,7 @@
 					if (session.getAttribute("idd") == null) {
 				%><td></td>
 				<%
-					} else if (session.getAttribute("idd").equals("root")) {
+					} else if (session.getAttribute("idd").equals("201744030")) {
 				%>
 				<td><input type=button value="글쓰기"
 					OnClick="window.location='pj_write.jsp'"></td>

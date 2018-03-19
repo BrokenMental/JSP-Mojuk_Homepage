@@ -1,28 +1,31 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%
-	Class.forName("com.mysql.jdbc.Driver");
+	int idx = Integer.parseInt(request.getParameter("idx"));
+
 	String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
 	String id = "root";
 	String pass = "1234";
-	int idx = Integer.parseInt(request.getParameter("idx"));
+	Class.forName("com.mysql.jdbc.Driver");
+	String name = "";
 
 	try {
 
 		Connection conn = DriverManager.getConnection(url, id, pass);
 		Statement stmt = conn.createStatement();
 
-		String sql = "SELECT USERNAME, TITLE, MEMO, TIME, HIT FROM notice WHERE ID=" + idx;
+		String sql = "SELECT USERNAME, TITLE, MEMO, TIME, HIT FROM notice WHERE NUM=" + idx;
 		ResultSet rs = stmt.executeQuery(sql);
 		if (rs.next()) {
-			String name = rs.getString(1);
+			name = rs.getString(1);
 			String title = rs.getString(2);
 			String memo = rs.getString(3);
 			String time = rs.getString(4);
 			int hit = rs.getInt(5);
 			hit++;
 %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -107,8 +110,7 @@
 						</tr>
 						<tr align="center">
 							<td width="0">&nbsp;</td>
-							<td colspan="2" width="399">
-								<input type=button value="목록"
+							<td colspan="2" width="399"><input type=button value="목록"
 								OnClick="window.location='Board_List.jsp'"> <%
  	if (name.equals(session.getAttribute("idd"))) {
  %><input type=button value="수정"
@@ -126,7 +128,7 @@
 		</table>
 	</center>
 	<%
-		sql = "UPDATE board SET HIT=" + hit + " where ID=" + idx;
+		sql = "UPDATE notice SET HIT=" + hit + " where NUM=" + idx;
 				stmt.executeUpdate(sql);
 				rs.close();
 				stmt.close();
@@ -135,7 +137,11 @@
 		} catch (SQLException e) {
 		}
 	%>
-	<%@include file="../include/bottom.jsp"%></
-	body>
+	<%@include file="../include/bottom.jsp"%>
+</body>
 </html>
+
+
+
+
 
