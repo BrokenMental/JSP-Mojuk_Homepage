@@ -18,6 +18,13 @@
 		String title = request.getParameter("title");
 		String memo = request.getParameter("memo");
 		memo = memo.replace("\r\n","<br>");
+		
+		title = title.replaceAll("<","&#60");
+		title = title.replaceAll(">","&#62");
+		title = title.replaceAll("/","&#47");
+		memo = memo.replaceAll("<","&#60");
+		memo = memo.replaceAll(">","&#62");
+		memo = memo.replaceAll("/","&#47");
 
 		String sql = "UPDATE project SET title='" + title + "' ,memo='" + memo + "' WHERE id=" + idx;
 		stmt.executeUpdate(sql);

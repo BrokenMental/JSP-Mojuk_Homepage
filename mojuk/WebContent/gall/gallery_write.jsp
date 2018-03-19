@@ -1,5 +1,15 @@
+<%@ page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	PrintWriter out1 = response.getWriter();
+	if (session.getAttribute("idd") == null){
+		out1.println("<script language='javascript'>");
+		out1.println("alert('권한이 없습니다');");
+		out1.println("history.back(-1)");
+		out1.println("</script >");
+	}
+	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>

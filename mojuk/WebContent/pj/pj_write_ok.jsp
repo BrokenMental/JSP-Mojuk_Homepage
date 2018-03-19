@@ -21,17 +21,24 @@ com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 		String file = (String) files.nextElement();
 		String filename = multi.getFilesystemName("filename");
 
-	Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.jdbc.Driver");
 
-	String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
-	String id = "root";
-	String pass = "1234";
-	String name = multi.getParameter("name");
-	String title = multi.getParameter("title");
-	String memo = multi.getParameter("memo");
-	memo = memo.replace("\r\n","<br>");
+		String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
+		String id = "root";
+		String pass = "1234";
+		String name = multi.getParameter("name");
+		String title = multi.getParameter("title");
+		String memo = multi.getParameter("memo");
+		memo = memo.replace("\r\n", "<br>");
 
-	int max = 0;
+		title = title.replaceAll("<", "&#60");
+		title = title.replaceAll(">", "&#62");
+		title = title.replaceAll("/", "&#47");
+		memo = memo.replaceAll("<", "&#60");
+		memo = memo.replaceAll(">", "&#62");
+		memo = memo.replaceAll("/", "&#47");
+
+		int max = 0;
 
 		Connection conn = DriverManager.getConnection(url, id, pass);
 		Statement stmt = conn.createStatement();

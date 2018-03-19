@@ -1,6 +1,9 @@
+<%@ page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -59,7 +62,7 @@
 						<tr>
 							<td>&nbsp;</td>
 							<td align="center">첨부파일</td>
-							<td><input type="file" name="filename" size="50"
+							<td><input name="upfile" type="file" name="filename" size="50"
 								maxlength="50"></td>
 							<td>&nbsp;</td>
 						</tr>
@@ -72,8 +75,8 @@
 						<tr align="center">
 							<td>&nbsp;</td>
 							<td colspan="2"><input type=submit value="등록"
-								OnClick="javascript:writeCheck();"> <input type=button
-								value="취소" OnClick="javascript:history.back(-1)">
+								OnClick="javascript:writeCheck(this.form);">
+								<input type=button value="취소" OnClick="javascript:history.back(-1)">
 							<td>&nbsp;</td>
 						</tr>
 					</table>
@@ -81,10 +84,22 @@
 			</td>
 		</tr>
 	</table>
+	<%
+	PrintWriter out1 = response.getWriter();
+	if (session.getAttribute("idd") ==null){
+		out1.println("<script language='javascript'>");
+		out1.println("alert('권한이 없습니다');");
+		out1.println("history.back(-1)");
+		out1.println("</script >");
+	}
+	%>
 	<script language="javascript">
 		// 자바 스크립트 시작
-		function writeCheck() {
+		function writeCheck(frm) {
 			var form = document.writeform;
+			var file = frm.upfile.value;
+			var fileExt = file.substring(file.lastIndexOf('.') + 1); //파일의 확장자를 구합니다.
+			var bSubmitCheck = true;
 
 			if (!form.name.value) // form 에 있는 name 값이 없을 때
 			{
@@ -110,6 +125,18 @@
 				return;
 			}
 
+			if (!file) {
+				alert("파일을 선택하여 주세요!");
+				return;
+			}
+
+			if (fileExt.toUpperCase() == "ASP" || fileExt.toUpperCase() == "PHP"
+					|| fileExt.toUpperCase() == "JSP") {
+				alert("ASP,PHP,JSP 파일은 업로드 하실 수 없습니다!");
+				return;
+			}
+
+			alert("파일 업로드를 시작합니다.");
 			form.submit();
 		}
 	</script>

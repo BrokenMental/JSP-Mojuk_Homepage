@@ -16,6 +16,13 @@
 		String title = request.getParameter("title");
 		String memo = request.getParameter("memo");
 		memo = memo.replace("\r\n", "<br>");
+		
+		title = title.replaceAll("<","&#60");
+		title = title.replaceAll(">","&#62");
+		title = title.replaceAll("/","&#47");
+		memo = memo.replaceAll("<","&#60");
+		memo = memo.replaceAll(">","&#62");
+		memo = memo.replaceAll("/","&#47");
 
 		Connection conn = DriverManager.getConnection(url, id, pass);
 		Statement stmt = conn.createStatement();
@@ -25,7 +32,7 @@
 %>
 <script language=javascript>
 	self.window.alert("글이 수정되었습니다.");
-	location.href = "view.jsp	";
+	location.href = "list.jsp	";
 </script>
 <%
 	stmt.close();

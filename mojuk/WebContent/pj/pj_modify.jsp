@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
+<%@ page import="java.io.PrintWriter"%>
+
 <%
 	request.setCharacterEncoding("UTF-8");
 	Class.forName("com.mysql.jdbc.Driver");
 	String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
 	String id = "root";
 	String pass = "1234";
+	
+	PrintWriter out1 = response.getWriter();
 
 	String name = "";
 	String password = "";
@@ -37,6 +41,13 @@
 
 	} catch (SQLException e) {
 		out.println(e.toString());
+	}
+	
+	if (session.getAttribute("idd") != name){
+		out1.println("<script language='javascript'>");
+		out1.println("alert('권한이 없습니다');");
+		out1.println("history.back(-1)");
+		out1.println("</script >");
 	}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

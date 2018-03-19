@@ -8,6 +8,13 @@
 	String memo = request.getParameter("memo");
 	memo = memo.replace("\r\n","<br>");
 	String hit = request.getParameter("hit");
+	
+	title = title.replaceAll("<","&#60");
+	title = title.replaceAll(">","&#62");
+	title = title.replaceAll("/","&#47");
+	memo = memo.replaceAll("<","&#60");
+	memo = memo.replaceAll(">","&#62");
+	memo = memo.replaceAll("/","&#47");
 
 	int max = 0;
 

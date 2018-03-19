@@ -1,13 +1,16 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
+<%@ page import="java.io.PrintWriter"%>
 <%
 	request.setCharacterEncoding("UTF-8");
 	Class.forName("com.mysql.jdbc.Driver");
 	String url = "jdbc:mysql://localhost:3306/mojuk?characterEncoding=utf8&amp;useSSL=false&amp;autoReconnection=true";
 	String id = "root";
 	String pass = "1234";
-
+	
+	PrintWriter out1 = response.getWriter();
+	
 	String name = "";
 	String password = "";
 	String title = "";
@@ -27,7 +30,7 @@
 			name = rs.getString(1);
 			title = rs.getString(2);
 			memo = rs.getString(3);
-			memo = memo.replaceAll("<br>","\r\n");
+			memo = memo.replaceAll("<br>", "\r\n");
 		}
 
 		rs.close();
@@ -37,21 +40,26 @@
 	} catch (SQLException e) {
 		out.println(e.toString());
 	}
+	if (session.getAttribute("idd") != name){
+		out1.println("<script language='javascript'>");
+		out1.println("alert('권한이 없습니다');");
+		out1.println("history.back(-1)");
+		out1.println("</script >");
+	}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>게시물 수정</title>
+<title>게시판</title>
 <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico" />
 </head>
 <body>
+	<%@include file="../include/main_include.jsp"%>
+	<!-- 이미지 -->
+	<div id="list_img">
+		<img src="../img/Board.png" style="width: 1520px;">
+	</div>
 	<center>
-		<%@include file="../include/main_include.jsp"%>
-		<!-- 이미지 -->
-		<div id="list_img">
-			<img src="../img/Board.png" style="width: 1520px;">
-		</div>
 		<table>
 			<tr>
 				<td>
@@ -65,14 +73,14 @@
 								height="30" /></td>
 						</tr>
 					</table>
+
 					<form name=modifyform method=post
 						action="Board_Modify_Action.jsp?idx=<%=idx%>">
 						<table>
 							<tr>
 								<td>&nbsp;</td>
 								<td align="center">제목</td>
-								<td><input name="title" size="50" maxlength="100"
-									value="<%=title%>"></td>
+								<td><input name="title" size="50" maxlength="100" value="<%=title%>"></td>
 								<td>&nbsp;</td>
 							</tr>
 							<tr height="1" bgcolor="#dddddd">
@@ -81,8 +89,8 @@
 							<tr>
 								<td>&nbsp;</td>
 								<td align="center">이름</td>
-								<td><%=name%><input type="hidden" name="name" size="50"
-									maxlength="50" value="<%=name%>"></td>
+								<td><%=name%><input type=hidden name=name size=50
+									maxlength=50 value="<%=name%>"></td>
 								<td>&nbsp;</td>
 							</tr>
 							<tr height="1" bgcolor="#dddddd">
@@ -102,9 +110,8 @@
 							</tr>
 							<tr align="center">
 								<td>&nbsp;</td>
-								<td colspan="2"><input type=button value="수정"
-									OnClick="javascript:modifyCheck();"> <input type=button
-									value="취소" OnClick="javascript:history.back(-1)">
+								<td colspan="2"><input type=submit value="수정"> <input
+									type=button value="취소" OnClick="javascript:history.back(-1)">
 								<td>&nbsp;</td>
 							</tr>
 						</table>
@@ -113,8 +120,10 @@
 			</tr>
 		</table>
 	</center>
+	<%@include file="../include/bottom.jsp"%>
 	<script language="javascript">
 		// 자바 스크립트 시작
+
 		function modifyCheck() {
 			var form = document.modifyform;
 

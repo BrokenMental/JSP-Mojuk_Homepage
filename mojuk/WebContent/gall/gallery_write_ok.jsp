@@ -32,6 +32,10 @@ com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 	String Contents = multi.getParameter("Contents");
 	String FilePath = multi.getFilesystemName("FilePath");
 	
+	title = title.replaceAll("<","&#60");
+	title = title.replaceAll(">","&#62");
+	title = title.replaceAll("/","&#47");
+	
 	//System.out.println(FilePath);
 	
 	int max = 0;
